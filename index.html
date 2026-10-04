@@ -30,6 +30,11 @@
 @media(max-width:520px){.hero{grid-template-columns:1fr 105px;min-height:248px}.hero h1{font-size:38px;letter-spacing:-1.8px}.hero-copy>p{max-width:260px}.hero-art{transform:scale(.49);margin-left:-75px}.hero-tags{gap:8px}.hero-tags span{font-size:7.5px}.hero-tags svg{width:10px;height:10px}.studio-caption{display:none}.panel-description{font-size:11px}.image-grid{gap:10px}.thumb{height:158px;padding:24px 18px}.thumb img{max-height:106px}.card-info{padding:10px}.card-tools{gap:2px}.card-tools button{width:26px;height:28px}.file-title{font-size:10px}.export-bar{padding:14px}.export-bar .actions{width:100%}.export-bar .actions .btn{flex:1}.export-info p{font-size:9px}.file-row{padding:13px;gap:10px;flex-wrap:wrap}.file-row .file-details{flex-basis:calc(100% - 60px)}.file-details strong{font-size:11px}.file-details p{font-size:9px}.file-row>.btn{margin-left:auto}.file-row>.btn+.btn{margin-left:0}.levels{grid-template-columns:1fr}.level{padding:14px 16px 14px 46px}.level-number{position:absolute;left:15px;top:19px;margin:0}.level strong{margin-bottom:3px;font-size:12px}.level small{padding-right:15px}.level .radio{top:18px;right:15px}.result{padding:15px;gap:10px}.result strong{font-size:20px}.result span{font-size:8px;letter-spacing:.2px}.bottom-actions .actions{width:100%}.bottom-actions .actions .btn{flex:1}.trust-grid{gap:10px;margin:18px 0}.trust-item strong{font-size:10px}.trust-item p{font-size:8px}.range-grid{grid-template-columns:1fr 20px 1fr;gap:8px}.section-intro{align-items:flex-start;gap:8px}.section-intro h2{font-size:27px}.section-intro p{font-size:11px}.new-badge{font-size:8px;padding:7px 8px;margin-top:4px}.new-badge svg{display:none}.extend-main{padding:18px}.steps{gap:6px;font-size:9px}.step{gap:4px}.step b{width:19px;height:19px;font-size:8px}.append-item{flex-wrap:wrap;gap:8px}.append-buttons{width:100%;justify-content:flex-end}.append-item .append-meta{min-width:90px}.append-buttons button{width:32px}.summary-card{padding:13px}.summary-values{grid-template-columns:1fr;gap:7px}.summary-values strong{font-size:21px}.summary-values>div{display:flex;align-items:baseline;gap:6px}.summary-name{font-size:9px}.extend-aside{gap:10px;padding:17px}.summary-divider{font-size:9px}.summary-card .summary-title{font-size:10px}.footer-top{gap:25px 18px}.creator-card{align-items:flex-start;gap:8px}.creator-card strong{font-size:10px}.creator-card p{font-size:9px}.creator-card .avatar{width:32px;height:35px}.footer-links button,.footer-links a{font-size:11px}.footer-heading{font-size:9px}.footer-signoff{font-size:10px}.footer-bottom{flex-wrap:wrap;gap:9px}.footer-bottom p{max-width:260px}}
 @media(max-width:360px){.shell{width:calc(100% - 22px)}.hero{display:block;padding-block:30px}.hero-art{display:none}.hero-copy>p{max-width:none}.hero h1{font-size:40px}.tool-tab{padding:12px 9px}.tool-tab strong{font-size:10px}.panel{padding:14px}.card-tools button{width:24px}.result strong{font-size:17px}.steps{font-size:8px}.extend-main{padding:14px}.footer-top{grid-template-columns:1fr}.footer-brand{grid-column:auto}.new-badge{display:none}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}}
+
+/* Every export asks for a filename, including repeated downloads. */
+.download-dialog{width:min(510px,calc(100% - 28px));max-height:calc(100dvh - 32px);overflow:auto;margin:auto;padding:27px;border:1px solid var(--line);border-radius:23px;background:var(--surface);color:var(--ink);box-shadow:0 35px 120px #0005}.download-dialog::backdrop{background:#080e256f;backdrop-filter:blur(7px)}.download-dialog[open]{animation:card-in .22s var(--ease)}.download-dialog h2{font-size:25px;letter-spacing:-.8px;margin:12px 0 7px}.download-dialog .dialog-sub{font-size:12px;color:var(--muted);line-height:1.7;margin-bottom:18px}.download-dialog .export-icon{width:45px;height:45px}.name-option{display:flex;align-items:flex-start;gap:10px;padding:14px;border:1px solid var(--line);border-radius:12px;margin:9px 0;cursor:pointer;background:var(--soft)}.name-option:has(input:checked){border-color:var(--primary);background:var(--tint)}.name-option input{accent-color:var(--primary);margin:4px 0 0;width:15px;height:15px}.name-option strong{font-size:12px;display:block}.name-option span{display:block;font-size:10px;color:var(--muted);overflow-wrap:anywhere;margin-top:4px}.name-option div{min-width:0}.name-input-row{display:flex;align-items:center;border:1px solid var(--line);border-radius:10px;background:var(--soft);margin-top:7px;overflow:hidden}.name-input-row:focus-within{border-color:var(--primary);box-shadow:0 0 0 3px var(--tint)}.name-input-row input{min-width:0;width:100%;border:0;background:transparent;padding:13px;outline:none;font-size:14px}.name-input-row span{padding:0 13px;color:var(--muted);font-size:12px}.name-field{margin-top:15px}.name-field label{font-size:11px;font-weight:600}.name-error{color:var(--danger);font-size:11px;min-height:17px;margin:9px 0}.dialog-actions{display:flex;justify-content:flex-end;gap:9px;margin-top:14px}.dialog-actions .btn{min-height:43px}.quality-note strong{color:var(--primary)}
+@media(max-width:520px){.download-dialog{padding:21px}.download-dialog h2{font-size:23px}.dialog-actions .btn{flex:1}}
+
 </style>
 </head>
 <body>
@@ -58,49 +63,57 @@
 <nav class="tool-nav" role="tablist" aria-label="Choose a PDF tool" id="tools">
 <button class="tool-tab" id="tab-images" role="tab" data-mode="images" aria-selected="true" aria-controls="panel-images"><span class="tool-icon"><svg><use href="#i-image"/></svg></span><span><strong>Images to PDF</strong><small>Turn moments into documents</small></span><svg class="tab-arrow"><use href="#i-arrow"/></svg></button>
 <button class="tool-tab" id="tab-extract" role="tab" data-mode="extract" aria-selected="false" aria-controls="panel-extract" tabindex="-1"><span class="tool-icon"><svg><use href="#i-cut"/></svg></span><span><strong>Extract pages</strong><small>Keep exactly what you need</small></span><svg class="tab-arrow"><use href="#i-arrow"/></svg></button>
-<button class="tool-tab" id="tab-compress" role="tab" data-mode="compress" aria-selected="false" aria-controls="panel-compress" tabindex="-1"><span class="tool-icon"><svg><use href="#i-compress"/></svg></span><span><strong>Compress PDF</strong><small>Less weight. Easier sharing.</small></span><svg class="tab-arrow"><use href="#i-arrow"/></svg></button></nav>
+<button class="tool-tab" id="tab-compress" role="tab" data-mode="compress" aria-selected="false" aria-controls="panel-compress" tabindex="-1"><span class="tool-icon"><svg><use href="#i-compress"/></svg></span><span><strong>Optimize PDF</strong><small>Smaller when possible. No quality loss.</small></span><svg class="tab-arrow"><use href="#i-arrow"/></svg></button></nav>
 <div id="errorBanner" class="notice" role="alert" hidden></div>
 <div id="jobPanel" class="job" aria-live="polite" hidden><div class="job-line"><span class="spinner" aria-hidden="true"></span><strong id="jobText">Working…</strong><button id="cancelJob" class="btn small">Cancel</button></div><progress id="jobProgress" max="100" value="0" aria-label="Processing progress"></progress></div>
 <div class="studio"><div class="studio-header"><div class="studio-heading"><span class="tiny-dot"></span><h2 id="currentTool">Images to PDF</h2></div><span class="studio-caption">Your workspace. Your documents.</span></div>
-<section class="panel" id="panel-images" role="tabpanel" aria-labelledby="tab-images"><p class="panel-description">Add your images, arrange the pages, and create a PDF checked against a strict 2 MB limit.</p><input id="imageInput" type="file" multiple hidden accept="image/jpeg,image/png,image/webp,image/heic,image/heif,.jpg,.jpeg,.png,.webp,.heic,.heif"><button class="drop" id="imageDrop" data-lock><span class="drop-icon"><svg><use href="#i-image"/></svg></span><strong>A great document starts here.</strong><span class="sub">Drop your images into this space, or choose them below.</span><span class="browse-label"><svg><use href="#i-upload"/></svg>Choose images</span><span class="format-tags"><span>JPG</span><span>PNG</span><span>WEBP</span><span>HEIC</span><span>HEIF</span></span><span class="drop-footnote">Up to 50 MiB per image</span></button>
-<div class="workspace" id="imageWorkspace" hidden><div class="workspace-head"><div><h3>Your pages<span id="imageCount" class="count">0</span></h3><p class="hint">Drag the handles or use the arrows to change the order.</p></div><div class="actions"><button id="addImages" class="btn small" data-lock>+ Add images</button><button id="clearImages" class="btn small danger" data-lock>Clear all</button></div></div><div id="imageGrid" class="image-grid"></div><div class="export-bar"><div class="export-info"><span class="export-icon"><svg><use href="#i-file"/></svg></span><div><strong id="imageSize">Preparing your PDF…</strong><p id="imageQuality">Maximum output: 2 MB · 2,000,000 bytes</p></div></div><div class="actions"><button id="prepareImages" class="btn" data-lock>Prepare PDF</button><button id="downloadImages" class="btn primary" data-lock disabled><svg><use href="#i-download"/></svg>Download PDF</button></div></div><p class="hint" style="margin-top:10px">Larger collections need stronger compression. Review readability before submitting important documents.</p></div></section>
+<section class="panel" id="panel-images" role="tabpanel" aria-labelledby="tab-images"><p class="panel-description">Add your JPG or PNG images and arrange the pages. Original pixels are preserved; there is no forced size limit.</p><input id="imageInput" type="file" multiple hidden accept="image/jpeg,image/png,.jpg,.jpeg,.png"><button class="drop" id="imageDrop" data-lock><span class="drop-icon"><svg><use href="#i-image"/></svg></span><strong>A great document starts here.</strong><span class="sub">Drop your images into this space, or choose them below.</span><span class="browse-label"><svg><use href="#i-upload"/></svg>Choose images</span><span class="format-tags"><span>JPG</span><span>PNG</span><span>ORIGINAL QUALITY</span></span><span class="drop-footnote">Up to 50 MiB per image</span></button>
+<div class="workspace" id="imageWorkspace" hidden><div class="workspace-head"><div><h3>Your pages<span id="imageCount" class="count">0</span></h3><p class="hint">Drag the handles or use the arrows to change the order.</p></div><div class="actions"><button id="addImages" class="btn small" data-lock>+ Add images</button><button id="clearImages" class="btn small danger" data-lock>Clear all</button></div></div><div id="imageGrid" class="image-grid"></div><div class="export-bar"><div class="export-info"><span class="export-icon"><svg><use href="#i-file"/></svg></span><div><strong id="imageSize">Preparing your PDF…</strong><p id="imageQuality">Original resolution · no lossy recompression · no output-size cap</p></div></div><div class="actions"><button id="prepareImages" class="btn" data-lock>Prepare PDF</button><button id="downloadImages" class="btn primary" data-lock disabled><svg><use href="#i-download"/></svg>Download PDF</button></div></div><p class="hint" style="margin-top:10px">Original JPEG data and lossless PNG pixels are retained. Rotation changes page orientation only. Files may be larger because quality is never reduced to meet a size target.</p></div></section>
 <section class="panel" id="panel-extract" role="tabpanel" aria-labelledby="tab-extract" hidden><p class="panel-description">Select a page range and save it as a new PDF. Pages are copied directly without converting them into images.</p><input id="extractInput" type="file" accept="application/pdf,.pdf" hidden><button class="drop" id="extractDrop" data-lock><span class="drop-icon"><svg><use href="#i-cut"/></svg></span><strong>Keep the pages that matter.</strong><span class="sub">Drop one PDF here to choose your starting and ending pages.</span><span class="browse-label"><svg><use href="#i-upload"/></svg>Choose PDF</span><span class="format-tags"><span>PDF DOCUMENT</span><span>ORIGINAL QUALITY</span></span></button><div class="workspace" id="extractWorkspace" hidden><div class="file-row"><span class="file-icon"><svg><use href="#i-file"/></svg></span><div class="file-details"><strong id="extractName"></strong><p id="extractMeta"></p></div><button id="clearExtract" class="btn small" data-lock>Change file</button></div><form id="extractForm" class="settings"><span class="section-label">Select your page range</span><div class="range-grid"><div class="field"><label for="startPage">Starting page</label><input id="startPage" type="number" min="1" step="1" required data-lock></div><span class="range-arrow" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span><div class="field"><label for="endPage">Ending page</label><input id="endPage" type="number" min="1" step="1" required data-lock></div></div><p id="rangeSummary" class="selection-note" aria-live="polite"></p><div class="bottom-actions"><p class="hint">Both the starting and ending pages are included.</p><button id="extractButton" type="submit" class="btn primary" data-lock><svg><use href="#i-download"/></svg>Extract & download</button></div></form></div></section>
-<section class="panel" id="panel-compress" role="tabpanel" aria-labelledby="tab-compress" hidden><p class="panel-description">Make image-heavy PDFs easier to share. Choose a quality level and compare the actual file sizes before downloading.</p><input id="compressInput" type="file" accept="application/pdf,.pdf" hidden><button class="drop" id="compressDrop" data-lock><span class="drop-icon"><svg><use href="#i-compress"/></svg></span><strong>Good things come in smaller files.</strong><span class="sub">Drop your PDF here and give it a lighter footprint.</span><span class="browse-label"><svg><use href="#i-upload"/></svg>Choose PDF</span><span class="format-tags"><span>PDF DOCUMENT</span><span>3 QUALITY LEVELS</span></span><span class="drop-footnote">File capacity depends on available device memory.</span></button><div class="workspace" id="compressWorkspace" hidden><div class="file-row"><span class="file-icon"><svg><use href="#i-file"/></svg></span><div class="file-details"><strong id="compressName"></strong><p id="compressMeta"></p></div><button id="clearCompress" class="btn small" data-lock>Remove</button></div><div class="settings"><span class="section-label">Find your balance</span><div class="levels" role="group" aria-label="Compression level"><button class="level" data-level="high" aria-pressed="true" data-lock><span class="radio" aria-hidden="true"></span><span class="level-number">01 /</span><strong>High quality</strong><small>Sharper pages with lighter compression.</small></button><button class="level" data-level="balanced" aria-pressed="false" data-lock><span class="radio" aria-hidden="true"></span><span class="level-number">02 /</span><strong>Balanced</strong><small>A comfortable balance of clarity and size.</small></button><button class="level" data-level="small" aria-pressed="false" data-lock><span class="radio" aria-hidden="true"></span><span class="level-number">03 /</span><strong>Smallest file</strong><small>Lower resolution with stronger compression.</small></button></div></div><p class="notice warning">Compression creates image-only pages. Searchable text, links, interactive forms, and digital signatures are not preserved. Some PDFs may become larger.</p><div id="compressionResult" class="result" aria-live="polite" hidden><div><strong id="originalSize">—</strong><span>ORIGINAL FILE</span></div><div><strong id="compressedSize">—</strong><span>NEW FILE</span></div><div><strong id="sizeReduction">—</strong><span id="reductionLabel">SIZE CHANGE</span></div></div><p id="compressionNote" class="notice" hidden></p><div class="bottom-actions"><p id="compressPageHint" class="hint"></p><div class="actions"><button id="compressButton" class="btn primary" data-lock><svg><use href="#i-compress"/></svg>Compress PDF</button><button id="downloadCompressed" class="btn primary" data-lock hidden><svg><use href="#i-download"/></svg>Download PDF</button></div></div></div></section>
+<section class="panel" id="panel-compress" role="tabpanel" aria-labelledby="tab-compress" hidden><p class="panel-description">Reduce PDF overhead where possible. Optimize document structure without rendering pages or recompressing images.</p><input id="compressInput" type="file" accept="application/pdf,.pdf" hidden><button class="drop" id="compressDrop" data-lock><span class="drop-icon"><svg><use href="#i-compress"/></svg></span><strong>Good things come in smaller files.</strong><span class="sub">Drop your PDF here. Its page and image quality stays intact.</span><span class="browse-label"><svg><use href="#i-upload"/></svg>Choose PDF</span><span class="format-tags"><span>PDF DOCUMENT</span><span>LOSSLESS ONLY</span></span><span class="drop-footnote">File capacity depends on available device memory.</span></button><div class="workspace" id="compressWorkspace" hidden><div class="file-row"><span class="file-icon"><svg><use href="#i-file"/></svg></span><div class="file-details"><strong id="compressName"></strong><p id="compressMeta"></p></div><button id="clearCompress" class="btn small" data-lock>Remove</button></div><div class="notice quality-note"><strong>Original-quality protection is always on.</strong><br>Only PDF structure is optimized. Pages stay as PDF content; images are never downsampled or re-encoded. If the file cannot be made smaller safely, you receive the original bytes.</div><div id="compressionResult" class="result" aria-live="polite" hidden><div><strong id="originalSize">—</strong><span>ORIGINAL FILE</span></div><div><strong id="compressedSize">—</strong><span>NEW FILE</span></div><div><strong id="sizeReduction">—</strong><span id="reductionLabel">SIZE CHANGE</span></div></div><p id="compressionNote" class="notice" hidden></p><div class="bottom-actions"><p id="compressPageHint" class="hint"></p><div class="actions"><button id="compressButton" class="btn primary" data-lock><svg><use href="#i-compress"/></svg>Optimize PDF</button><button id="downloadCompressed" class="btn primary" data-lock hidden><svg><use href="#i-download"/></svg>Download PDF</button></div></div></div></section>
 </div>
 <!-- A separate fourth workspace, below the existing three-tool layout. -->
 <section class="extend-section" id="extend" aria-labelledby="extendTitle"><div class="section-intro"><div><span class="eyebrow">Keep the story going</span><h2 id="extendTitle">Same PDF. A new chapter.</h2><p>Add more pages, photos, or other PDFs to the end of your existing document. See exactly what changes before you download.</p></div><span class="new-badge"><svg><use href="#i-plus"/></svg>EXTEND A PDF</span></div>
 <div class="studio extend-layout"><div class="extend-main"><div class="steps" aria-label="Document extension progress"><span class="step active" id="stepBase"><b>1</b>Your PDF</span><span class="step-line"></span><span class="step" id="stepAdd"><b>2</b>Add pages</span><span class="step-line"></span><span class="step" id="stepReady"><b>3</b>Review & save</span></div>
-<input id="appendBaseInput" type="file" accept="application/pdf,.pdf" hidden><input id="appendInput" type="file" multiple accept="application/pdf,image/jpeg,image/png,image/webp,image/heic,image/heif,.pdf,.jpg,.jpeg,.png,.webp,.heic,.heif" hidden>
+<input id="appendBaseInput" type="file" accept="application/pdf,.pdf" hidden><input id="appendInput" type="file" multiple accept="application/pdf,image/jpeg,image/png,.pdf,.jpg,.jpeg,.png" hidden>
 <button id="appendBaseDrop" class="drop" data-lock><span class="drop-icon"><svg><use href="#i-stack"/></svg></span><strong>Start with your existing PDF.</strong><span class="sub">We’ll read its page count and original file size.</span><span class="browse-label"><svg><use href="#i-upload"/></svg>Choose existing PDF</span><span class="format-tags"><span>PDF DOCUMENT</span><span>ORIGINAL FILE STAYS SAFE</span></span></button>
 <div id="appendWorkspace" hidden><div class="file-row"><span class="file-icon"><svg><use href="#i-file"/></svg></span><div class="file-details"><strong id="appendBaseName"></strong><p id="appendBaseMeta"></p></div><button class="btn small" id="replaceAppendBase" data-lock>Replace PDF</button><button class="btn small danger" id="clearAppend" data-lock>Reset</button></div>
-<button id="appendDrop" class="drop append-drop" data-lock><span class="drop-icon"><svg><use href="#i-plus"/></svg></span><strong>What comes next?</strong><span class="sub">Drop PDFs or photos. They’ll go after your original pages.</span><span class="browse-label">+ Choose files to add</span><span class="format-tags"><span>PDF</span><span>JPG</span><span>PNG</span><span>WEBP</span><span>HEIC / HEIF</span></span></button>
-<div class="queue-head"><h3>Pages to append<span class="count" id="appendCount">0</span></h3><button id="clearAdditions" class="btn small danger" data-lock>Clear additions</button></div><p class="hint" style="margin-bottom:10px">Drag or use the arrows to arrange additions. Original pages always come first.</p><div id="appendList" class="append-list"></div><p id="appendEmpty" class="append-empty">Choose a PDF or photo to add your first new page.</p><p class="append-help">Photos become individual pages. Added PDFs keep their page order. For Word files or other formats, export to PDF first. Images: up to 50 MiB each.</p></div>
-</div><aside class="extend-aside" aria-label="Original and updated document comparison"><p class="aside-label">Your document, at a glance</p><div class="summary-card original"><div class="summary-title"><svg><use href="#i-file"/></svg>Original PDF</div><div class="summary-values"><div><strong id="appendOriginalPages">—</strong><span>pages</span></div><div><strong id="appendOriginalSize">—</strong><span>file size</span></div></div><p id="appendOriginalBytes" class="summary-name">Choose your original document.</p></div><div class="summary-divider"><svg><use href="#i-plus"/></svg><span id="appendAddedSummary">Your additions go at the end</span></div><div class="summary-card updated"><div class="summary-title"><svg><use href="#i-stack"/></svg>Updated PDF</div><div class="summary-values"><div><strong id="appendFinalPages">—</strong><span>pages</span></div><div><strong id="appendFinalSize">—</strong><span>file size</span></div></div><p id="appendFinalBytes" class="summary-name">Measured after the PDF is built.</p></div><p id="appendStatus" class="ready-note" role="status" aria-live="polite">Choose a PDF to get started.</p><div class="append-export"><button id="buildAppend" class="btn" data-lock disabled><svg><use href="#i-stack"/></svg>Build updated PDF</button><button id="downloadAppend" class="btn primary" data-lock disabled><svg><use href="#i-download"/></svg>Download updated PDF</button><small>The download unlocks after the updated file is built and its actual size is measured. No 2 MB limit applies here.</small></div><div class="aside-bottom"><svg><use href="#i-shield"/></svg><span>Saved as a new file. Your original stays untouched.</span></div></aside></div>
+<button id="appendDrop" class="drop append-drop" data-lock><span class="drop-icon"><svg><use href="#i-plus"/></svg></span><strong>What comes next?</strong><span class="sub">Drop PDFs or photos. They’ll go after your original pages.</span><span class="browse-label">+ Choose files to add</span><span class="format-tags"><span>PDF</span><span>JPG</span><span>PNG</span><span>ORIGINAL QUALITY</span></span></button>
+<div class="queue-head"><h3>Pages to append<span class="count" id="appendCount">0</span></h3><button id="clearAdditions" class="btn small danger" data-lock>Clear additions</button></div><p class="hint" style="margin-bottom:10px">Drag or use the arrows to arrange additions. Original pages always come first.</p><div id="appendList" class="append-list"></div><p id="appendEmpty" class="append-empty">Choose a PDF or photo to add your first new page.</p><p class="append-help">JPG and PNG photos become pages at their original resolution. PDF pages are copied directly. For WebP, HEIC, 16-bit PNG, or other unsupported formats, provide a compatible original or convert them yourself first. No automatic quality-reducing conversion is performed.</p></div>
+</div><aside class="extend-aside" aria-label="Original and updated document comparison"><p class="aside-label">Your document, at a glance</p><div class="summary-card original"><div class="summary-title"><svg><use href="#i-file"/></svg>Original PDF</div><div class="summary-values"><div><strong id="appendOriginalPages">—</strong><span>pages</span></div><div><strong id="appendOriginalSize">—</strong><span>file size</span></div></div><p id="appendOriginalBytes" class="summary-name">Choose your original document.</p></div><div class="summary-divider"><svg><use href="#i-plus"/></svg><span id="appendAddedSummary">Your additions go at the end</span></div><div class="summary-card updated"><div class="summary-title"><svg><use href="#i-stack"/></svg>Updated PDF</div><div class="summary-values"><div><strong id="appendFinalPages">—</strong><span>pages</span></div><div><strong id="appendFinalSize">—</strong><span>file size</span></div></div><p id="appendFinalBytes" class="summary-name">Measured after the PDF is built.</p></div><p id="appendStatus" class="ready-note" role="status" aria-live="polite">Choose a PDF to get started.</p><div class="append-export"><button id="buildAppend" class="btn" data-lock disabled><svg><use href="#i-stack"/></svg>Build updated PDF</button><button id="downloadAppend" class="btn primary" data-lock disabled><svg><use href="#i-download"/></svg>Download updated PDF</button><small>The download unlocks after the updated file is built and its actual size is measured. No output-size cap or image recompression applies.</small></div><div class="aside-bottom"><svg><use href="#i-shield"/></svg><span>Saved as a new file. Your original stays untouched.</span></div></aside></div>
 <p class="hint" style="margin-top:12px">PDF pages are appended without rasterization. Digital signatures need re-signing after edits; interactive fields in added PDFs may not remain editable.</p>
 </section>
 <section class="trust-grid" aria-label="About this application"><div class="trust-item"><span class="trust-icon"><svg><use href="#i-shield"/></svg></span><div><strong>Your files stay yours</strong><p>Documents are processed in your browser, without uploading them to a server.</p></div></div><div class="trust-item"><span class="trust-icon"><svg><use href="#i-bolt"/></svg></span><div><strong>Straight to the useful part</strong><p>No accounts or setup. Choose your files and get to work.</p></div></div><div class="trust-item"><span class="trust-icon"><svg><use href="#i-heart"/></svg></span><div><strong>Made for everyday tasks</strong><p>One space to create, extract, compress, and extend your documents.</p></div></div></section>
 </main>
-<footer class="footer" id="developer"><div class="shell"><div class="footer-top"><div class="footer-brand"><a class="brand" href="#top"><span class="brand-mark"><svg><use href="#i-file"/></svg></span><span><strong>Kiran’s PDF</strong><small>THE DOCUMENT STUDIO</small></span></a><p class="footer-description">A little less paperwork. A little more possibility.<br>Thoughtful tools for the documents that move your day forward.</p><p class="footer-tech">Internet loads libraries and fonts. Your documents are processed locally and are not stored after this tab closes.</p></div><nav aria-label="Footer tools"><h3 class="footer-heading">Your toolkit</h3><div class="footer-links"><button data-tool-link="images">Images to PDF ↗</button><button data-tool-link="extract">Extract pages ↗</button><button data-tool-link="compress">Compress PDF ↗</button><a href="#extend">Extend a PDF ↗</a></div></nav><div><h3 class="footer-heading">Made with intention</h3><div class="creator-card"><span class="avatar">K</span><div><strong>Kondasani Himakiran</strong><p>UI/UX & Development</p><p>Andhra Pradesh, India</p></div></div><p class="footer-signoff">Simple tools. A smoother day.</p></div></div><div class="footer-bottom"><p>© <span id="year"></span> Kiran’s PDF Studio. All rights reserved.</p><p>Built for your browser. Designed around you.</p><a href="#top" class="back-top">Back to top<svg><use href="#i-arrow"/></svg></a></div></div></footer>
+<footer class="footer" id="developer"><div class="shell"><div class="footer-top"><div class="footer-brand"><a class="brand" href="#top"><span class="brand-mark"><svg><use href="#i-file"/></svg></span><span><strong>Kiran’s PDF</strong><small>THE DOCUMENT STUDIO</small></span></a><p class="footer-description">A little less paperwork. A little more possibility.<br>Thoughtful tools for the documents that move your day forward.</p><p class="footer-tech">Internet loads libraries and fonts. Your documents are processed locally and are not stored after this tab closes.</p></div><nav aria-label="Footer tools"><h3 class="footer-heading">Your toolkit</h3><div class="footer-links"><button data-tool-link="images">Images to PDF ↗</button><button data-tool-link="extract">Extract pages ↗</button><button data-tool-link="compress">Optimize PDF ↗</button><a href="#extend">Extend a PDF ↗</a></div></nav><div><h3 class="footer-heading">Made with intention</h3><div class="creator-card"><span class="avatar">K</span><div><strong>Kondasani Himakiran</strong><p>UI/UX & Development</p><p>Andhra Pradesh, India</p></div></div><p class="footer-signoff">Simple tools. A smoother day.</p></div></div><div class="footer-bottom"><p>© <span id="year"></span> Kiran’s PDF Studio. All rights reserved.</p><p>Built for your browser. Designed around you.</p><a href="#top" class="back-top">Back to top<svg><use href="#i-arrow"/></svg></a></div></div></footer>
+
+<dialog id="downloadDialog" class="download-dialog" aria-labelledby="downloadNameTitle" aria-describedby="downloadNameDescription">
+<form id="downloadNameForm" novalidate>
+<span class="export-icon"><svg><use href="#i-download"/></svg></span>
+<h2 id="downloadNameTitle">Name it before you save it.</h2>
+<p id="downloadNameDescription" class="dialog-sub">Would you like to enter a new PDF name or continue with the current one?<br><span id="downloadFileSize"></span></p>
+<label class="name-option"><input type="radio" id="nameKeep" name="nameChoice" value="keep" checked><div><strong>Keep the current name</strong><span id="currentPdfName"></span></div></label>
+<label class="name-option"><input type="radio" id="nameNew" name="nameChoice" value="new"><div><strong>Enter a new name</strong><span>Choose a name that is easier to find later.</span></div></label>
+<div id="customNameField" class="name-field" hidden><label for="pdfNameInput">New PDF name</label><div class="name-input-row"><input id="pdfNameInput" type="text" autocomplete="off" spellcheck="false" maxlength="160" aria-describedby="nameError" disabled><span>.pdf</span></div></div>
+<p id="nameError" class="name-error" role="alert"></p>
+<div class="dialog-actions"><button type="button" id="cancelDownload" class="btn">Cancel</button><button type="submit" id="confirmDownload" class="btn primary"><svg><use href="#i-download"/></svg>Download PDF</button></div>
+</form></dialog>
+
 <div id="toast" role="status" aria-live="polite" hidden></div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/heic2any/0.0.4/heic2any.min.js"></script>
 <script>
 (() => {
   'use strict';
   const $ = id => document.getElementById(id);
   const motion = matchMedia('(prefers-reduced-motion: reduce)');
-  const MAX_OUTPUT = 2_000_000, MAX_IMAGE = 50 * 1024 * 1024;
-  const MAX_PIXELS = 16_000_000, MAX_SIDE = 8192;
+  const MAX_IMAGE = 50 * 1024 * 1024;
   const state = { images: [], imageOutput: null, extract: null, compress: null,
-    compressedOutput: null, level: 'high', mode: 'images', job: null,
+    compressedOutput: null, mode: 'images', job: null, naming: false,
     append: { base: null, items: [], output: null, outputPages: 0 } };
-  const levels = { high: {scale: 1.6, quality: .82}, balanced: {scale: 1.2, quality: .55}, small: {scale: .85, quality: .32} };
   const sorts = [];
   let sequence = 0, toastTimer, imageTimer, appendTimer, themeBusy = false;
-  const ready = Boolean(window.PDFLib && window.pdfjsLib);
-  if (window.pdfjsLib) pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+  const ready = Boolean(window.PDFLib);
   $('year').textContent = new Date().getFullYear();
 
   // Shared utilities. User-controlled names are always inserted with textContent.
@@ -117,10 +130,60 @@
     if (!motion.matches) el.animate([{opacity:0, transform:'translate(-50%, 12px)'},{opacity:1, transform:'translate(-50%, 0)'}], {duration:220, easing:'cubic-bezier(.2,.8,.2,1)'});
     toastTimer = setTimeout(() => el.hidden = true, error ? 9000 : 4500);
   }
-  function download(blob, name) {
-    const url = URL.createObjectURL(blob), a = document.createElement('a');
-    a.href = url; a.download = name; document.body.append(a); a.click(); a.remove();
-    setTimeout(() => URL.revokeObjectURL(url), 60000);
+
+  let resolveDownloadName = null;
+  let pendingDefaultName = '';
+  function checkedName(value) {
+    let name=String(value).normalize('NFC').trim().replace(/(?:\.pdf)+$/i,'').trim();
+    if(!name || /^[. ]+$/.test(name)) throw new Error('Enter a PDF name.');
+    if(/[\\/:*?"<>|\u0000-\u001f\u007f\u202a-\u202e\u2066-\u2069]/u.test(name)) throw new Error('Remove slashes, control characters, or these symbols: : * ? " < > |');
+    if(/[. ]$/.test(name)) throw new Error('The name cannot end with a dot or a space.');
+    if(/^(con|prn|aux|nul|com[1-9]|lpt[1-9])(?:\.|$)/i.test(name)) throw new Error('That name is reserved by Windows. Choose another name.');
+    if([...name].length>150) throw new Error('Use a name with 150 characters or fewer.');
+    return name+'.pdf';
+  }
+  function updateNameChoice() {
+    const custom=$('nameNew').checked;
+    $('customNameField').hidden=!custom;$('pdfNameInput').disabled=!custom;
+    $('nameError').textContent='';
+    if(custom){$('pdfNameInput').focus();$('pdfNameInput').select();}
+  }
+  $('nameKeep').addEventListener('change',updateNameChoice);
+  $('nameNew').addEventListener('change',updateNameChoice);
+  $('cancelDownload').addEventListener('click',()=>$('downloadDialog').close('cancel'));
+  $('downloadDialog').addEventListener('cancel',event=>{event.preventDefault();$('downloadDialog').close('cancel');});
+  $('downloadDialog').addEventListener('close',()=>{
+    const resolve=resolveDownloadName;resolveDownloadName=null;
+    if(resolve)resolve(null);
+  });
+  $('downloadNameForm').addEventListener('submit',event=>{
+    event.preventDefault();
+    try {
+      const name=$('nameNew').checked?checkedName($('pdfNameInput').value):pendingDefaultName;
+      const resolve=resolveDownloadName;resolveDownloadName=null;
+      $('downloadDialog').close('save');if(resolve)resolve(name);
+    }catch(error){$('nameError').textContent=error.message;$('pdfNameInput').focus();}
+  });
+  async function download(blob, name) {
+    if(state.naming)return false;
+    state.naming=true;syncControls();
+    let url=null;
+    try {
+      pendingDefaultName=checkedName(filename(name));
+      $('currentPdfName').textContent=pendingDefaultName;
+      $('downloadFileSize').textContent=`${size(blob.size)} · ${exact(blob.size)}`;
+      $('nameKeep').checked=true;$('nameNew').checked=false;
+      $('pdfNameInput').value=pendingDefaultName.replace(/\.pdf$/i,'');
+      $('nameError').textContent='';updateNameChoice();
+      const choice=new Promise(resolve=>resolveDownloadName=resolve);
+      $('downloadDialog').showModal();$('nameKeep').focus();
+      const selected=await choice;if(!selected)return false;
+      url=URL.createObjectURL(blob);
+      const a=document.createElement('a');a.href=url;a.download=selected;document.body.append(a);a.click();a.remove();
+      const savedURL=url;setTimeout(()=>URL.revokeObjectURL(savedURL),60000);url=null;
+      toast(`Download started: ${selected}`);return true;
+    }catch(error){if(url)URL.revokeObjectURL(url);toast(errorText(error),true);return false;}
+    finally{resolveDownloadName=null;state.naming=false;syncControls();}
   }
   function errorText(error) {
     const message = String(error?.message || error || 'Processing failed. Please try another file.');
@@ -160,7 +223,7 @@
   });
 
   const tabs = [...document.querySelectorAll('[data-mode]')];
-  const toolNames = {images:'Images to PDF',extract:'Extract pages',compress:'Compress PDF'};
+  const toolNames = {images:'Images to PDF',extract:'Extract pages',compress:'Optimize PDF'};
   function setMode(mode, focus = false) {
     const changed = state.mode !== mode; state.mode = mode;
     tabs.forEach(tab => {
@@ -189,7 +252,7 @@
 
   // One processing job at a time prevents shared-state races across tools.
   function syncControls() {
-    const locked = Boolean(state.job) || !ready;
+    const locked = Boolean(state.job) || state.naming || !ready;
     document.querySelectorAll('[data-lock]').forEach(el => el.disabled = locked);
     $('downloadImages').disabled = locked || !state.imageOutput;
     $('prepareImages').disabled = locked || !state.images.length;
@@ -211,7 +274,7 @@
   }
   async function runJob(label, task) {
     if (!ready) { toast('PDF libraries did not load. Check your internet connection and reload.', true); return false; }
-    if (state.job) { toast('Finish or cancel the current operation first.'); return false; }
+    if (state.job || state.naming) { toast('Finish the current operation first.'); return false; }
     // Timers retry when a different tool is busy, instead of losing queued updates.
     const job = {cancelled:false}; state.job = job;
     $('toast').hidden = true; $('jobPanel').hidden = false; $('cancelJob').disabled = false; $('cancelJob').textContent = 'Cancel';
@@ -245,76 +308,110 @@
   window.addEventListener('drop', event => {if (event.dataTransfer?.files.length) event.preventDefault();});
   const isPdf = file => file.type === 'application/pdf' || /\.pdf$/i.test(file.name);
   function validatePdf(file) { if (!file || !isPdf(file)) throw new Error('Choose a PDF document.'); if (!file.size) throw new Error('This file is empty.'); }
-  function loadImage(url) {
-    return new Promise((resolve,reject) => { const image = new Image(); image.onload = () => image.naturalWidth && image.naturalHeight ? resolve(image) : reject(new Error('The image has no readable dimensions.')); image.onerror = () => reject(new Error('The browser could not decode this image.')); image.src = url; });
-  }
-  function canvasBlob(canvas, type, quality) {
-    return new Promise((resolve,reject) => canvas.toBlob(blob => blob ? resolve(blob) : reject(new Error('Image encoding failed. Try a smaller image.')), type, quality));
-  }
-  const safeScale = (w,h,s) => Math.min(s, MAX_SIDE/w, MAX_SIDE/h, Math.sqrt(MAX_PIXELS/(w*h)));
-  function releaseItem(item) { if (item.url) URL.revokeObjectURL(item.url); }
-  async function importImages(file, job) {
-    const heic = /heic|heif/i.test(file.type) || /\.(heic|heif)$/i.test(file.name);
-    if (!heic && !/image\/(jpeg|png|webp)/i.test(file.type) && !/\.(jpe?g|png|webp)$/i.test(file.name)) throw new Error('Supported files are PDF, JPG, PNG, WebP, HEIC, and HEIF.');
-    if (file.size > MAX_IMAGE) throw new Error('Image exceeds the 50 MiB limit.');
-    if (!file.size) throw new Error('This image is empty.');
-    let blobs = [file];
-    if (heic) {
-      if (!window.heic2any) throw new Error('The HEIC decoder did not load. Try a JPG or PNG.');
-      const converted = await heic2any({blob:file,toType:'image/jpeg',quality:.95});
-      check(job); blobs = Array.isArray(converted) ? converted : [converted];
-    }
-    const imported = [];
-    try {
-      for (let i=0;i<blobs.length;i++) {
-        check(job); const blob = blobs[i], url = URL.createObjectURL(blob);
-        try {
-          const img = await loadImage(url); check(job);
-          imported.push({id:`page-${++sequence}`,kind:'image',pages:1,name:file.name+(blobs.length>1?` · ${i+1}`:''),url,blob,bytes:blob.size,png:!heic && (/image\/png/i.test(file.type)||/\.png$/i.test(file.name)),width:img.naturalWidth,height:img.naturalHeight,angle:0,grayscale:false});
-        } catch (error) { URL.revokeObjectURL(url); throw error; }
-      }
-      return imported;
-    } catch (error) { imported.forEach(releaseItem); throw error; }
-  }
 
-  // Image renderer also supports the new append workspace.
-  async function encodeImage(item, quality, scale, png, job) {
-    check(job); const image = await loadImage(item.url); check(job);
-    const rotated = item.angle % 180 !== 0;
-    const w = rotated ? item.height : item.width, h = rotated ? item.width : item.height;
-    const actual = safeScale(w,h,scale), canvas = document.createElement('canvas');
-    canvas.width = Math.max(1,Math.round(w*actual)); canvas.height = Math.max(1,Math.round(h*actual));
-    const ctx = canvas.getContext('2d',{willReadFrequently:item.grayscale});
-    if (!ctx) throw new Error('Canvas rendering is unavailable.');
-    try {
-      if (!png) {ctx.fillStyle='#ffffff';ctx.fillRect(0,0,canvas.width,canvas.height);}
-      ctx.imageSmoothingEnabled=true;ctx.imageSmoothingQuality='high';
-      ctx.translate(canvas.width/2,canvas.height/2);ctx.rotate(item.angle*Math.PI/180);
-      ctx.drawImage(image,-item.width*actual/2,-item.height*actual/2,item.width*actual,item.height*actual);
-      if (item.grayscale) {
-        const data = ctx.getImageData(0,0,canvas.width,canvas.height), p=data.data;
-        for(let i=0;i<p.length;i+=4){const lum=.2126*p[i]+.7152*p[i+1]+.0722*p[i+2]; const v=Math.max(0,Math.min(255,(lum-128)*1.05+128));p[i]=p[i+1]=p[i+2]=v;}
-        ctx.putImageData(data,0,0);
+  function releaseItem(item) { if(item.url)URL.revokeObjectURL(item.url); }
+  function jpegInformation(data) {
+    const view=new DataView(data.buffer,data.byteOffset,data.byteLength);
+    let offset=2,width=0,height=0,orientation=1,components=3;
+    const profiles=[];
+    while(offset+4<=data.length) {
+      if(data[offset++]!==0xff)break;
+      while(data[offset]===0xff)offset++;
+      const marker=data[offset++];
+      if(marker===0xda||marker===0xd9)break;
+      if(marker===0x01||(marker>=0xd0&&marker<=0xd7))continue;
+      const length=view.getUint16(offset);const end=offset+length;
+      if(length<2||end>data.length)break;
+      const payload=offset+2;
+      if([0xc0,0xc1,0xc2].includes(marker)) {
+        if(data[payload]!==8)throw new Error('This JPEG uses a bit depth this editor cannot preserve. Use the original file or an 8-bit PNG.');
+        height=view.getUint16(payload+1);width=view.getUint16(payload+3);components=data[payload+5];
       }
-      const blob = await canvasBlob(canvas,png?'image/png':'image/jpeg',quality);check(job);return blob;
-    } finally { canvas.width=canvas.height=1;image.src=''; }
+      if(marker===0xe1&&length>16&&String.fromCharCode(...data.slice(payload,payload+6))==='Exif\0\0') {
+        try {
+          const tiff=payload+6,le=view.getUint16(tiff)===0x4949;
+          if(view.getUint16(tiff+2,le)===42){const ifd=tiff+view.getUint32(tiff+4,le),count=view.getUint16(ifd,le);
+            for(let i=0;i<count;i++){const pos=ifd+2+i*12;if(pos+12>end)break;if(view.getUint16(pos,le)===0x112){const value=view.getUint16(pos+8,le);if(value>=1&&value<=8)orientation=value;break;}}
+          }
+        }catch{}
+      }
+      if(marker===0xe2&&length>16&&String.fromCharCode(...data.slice(payload,payload+12))==='ICC_PROFILE\0') {
+        profiles.push({index:data[payload+12],count:data[payload+13],bytes:data.slice(payload+14,end)});
+      }
+      offset=end;
+    }
+    if(!width||!height)throw new Error('This JPEG format cannot be embedded unchanged. Use a standard JPEG or PNG.');
+    if(components!==1&&components!==3)throw new Error('This JPEG uses a color space this engine cannot guarantee to preserve. No color conversion was performed.');
+    let profile=null;
+    if(profiles.length){profiles.sort((a,b)=>a.index-b.index);if(profiles.length!==profiles[0].count||profiles.some((p,i)=>p.index!==i+1))throw new Error('The JPEG has an incomplete color profile. It cannot be preserved safely.');const length=profiles.reduce((n,p)=>n+p.bytes.length,0);profile=new Uint8Array(length);let p=0;for(const part of profiles){profile.set(part.bytes,p);p+=part.bytes.length;}}
+    return{width,height,orientation,profile,components};
   }
-  async function addImagePage(doc,item,quality,scale,png,job) {
-    const blob=await encodeImage(item,quality,scale,png,job), data=await blob.arrayBuffer();check(job);
-    const embedded=png?await doc.embedPng(data):await doc.embedJpg(data);
-    const rotated=item.angle%180!==0;let w=(rotated?item.height:item.width)*.75,h=(rotated?item.width:item.height)*.75;
-    const cap=Math.min(1,14400/Math.max(w,h));w=Math.max(1,w*cap);h=Math.max(1,h*cap);
-    const page=doc.addPage([w,h]);page.drawImage(embedded,{x:0,y:0,width:w,height:h});
+  function pngInformation(data) {
+    const view=new DataView(data.buffer,data.byteOffset,data.byteLength);
+    if(data.length<33)throw new Error('This PNG is incomplete.');
+    const width=view.getUint32(16),height=view.getUint32(20),depth=data[24],color=data[25];
+    if(depth===16)throw new Error('16-bit PNG cannot be preserved by this PDF engine. This file was not converted or reduced.');
+    let profile=null;
+    for(let pos=8;pos+12<=data.length;){const n=view.getUint32(pos),type=String.fromCharCode(...data.slice(pos+4,pos+8)),end=pos+8+n;if(end+4>data.length)throw new Error('This PNG contains an incomplete chunk.');
+      if(type==='acTL')throw new Error('Animated PNG cannot be preserved as a still PDF page. Choose a still original image.');
+      if(type==='iCCP'){let z=pos+8;while(z<end&&data[z]!==0)z++;if(z+2>=end||data[z+1]!==0)throw new Error('This PNG has an unsupported color profile.');profile=data.slice(z+2,end);}
+      pos=end+4;
+    }
+    if(profile&&(color===0||color===4))throw new Error('This grayscale PNG has a color profile that cannot be retained safely by this PDF engine. No conversion was performed.');
+    return{width,height,orientation:1,profile,components:3};
+  }
+  async function importImages(file, job) {
+    if(file.size>MAX_IMAGE)throw new Error('Image exceeds the 50 MiB limit.');
+    if(!file.size)throw new Error('This image is empty.');
+    const data=new Uint8Array(await file.arrayBuffer());check(job);
+    const jpg=data[0]===0xff&&data[1]===0xd8;
+    const png=[137,80,78,71,13,10,26,10].every((v,i)=>data[i]===v);
+    if(!jpg&&!png)throw new Error('Strict original-quality mode accepts JPG and PNG images. Export WebP/HEIC or other formats to a lossless PNG first; this app will not convert them silently.');
+    const details=jpg?jpegInformation(data):pngInformation(data);
+    if(!details.width||!details.height)throw new Error('The image has invalid dimensions.');
+    // Verify that this exact source is supported before adding it to the workspace.
+    const probe=await PDFLib.PDFDocument.create();
+    const image=jpg?await probe.embedJpg(data):await probe.embedPng(data);await image.embed();check(job);
+    const displaySwapped=details.orientation>=5;
+    return[{id:`page-${++sequence}`,kind:'image',pages:1,name:file.name,url:URL.createObjectURL(file),blob:file,data,bytes:file.size,png,
+      ...details,displayWidth:displaySwapped?details.height:details.width,displayHeight:displaySwapped?details.width:details.height,angle:0}];
+  }
+  async function preserveColorProfile(doc,embedded,item) {
+    if(!item.profile)return;
+    // JPEG ICC data is uncompressed; PNG iCCP is already zlib-compressed.
+    const profileStream=item.png
+      ? PDFLib.PDFRawStream.of(doc.context.obj({N:3,Filter:'FlateDecode'}),item.profile)
+      : doc.context.flateStream(item.profile,{N:item.components});
+    const profileRef=doc.context.register(profileStream);
+    await embedded.embed();
+    doc.context.lookup(embedded.ref).dict.set(PDFLib.PDFName.of('ColorSpace'),doc.context.obj(['ICCBased',profileRef]));
+  }
+  async function addImagePage(doc,item,job) {
+    check(job);
+    // Original JPG bytes / losslessly decoded PNG pixels. No canvas, resizing,
+    // grayscale conversion, quality factor, or additional JPEG encoding.
+    const embedded=item.png?await doc.embedPng(item.data):await doc.embedJpg(item.data);
+    await preserveColorProfile(doc,embedded,item);check(job);
+    const w=embedded.width*.75,h=embedded.height*.75,o=item.orientation||1,swapped=o>=5;
+    const viewWidth=swapped?h:w,viewHeight=swapped?w:h;
+    const unit=Math.max(1,Math.max(viewWidth,viewHeight)/14400);
+    const page=doc.addPage([viewWidth/unit,viewHeight/unit]);
+    if(unit>1)page.node.set(PDFLib.PDFName.of('UserUnit'),PDFLib.PDFNumber.of(unit));
+    const matrices={1:[1,0,0,1,0,0],2:[-1,0,0,1,w,0],3:[-1,0,0,-1,w,h],4:[1,0,0,-1,0,h],5:[0,-1,-1,0,h,w],6:[0,-1,1,0,0,w],7:[0,1,1,0,0,0],8:[0,1,-1,0,h,0]};
+    const m=matrices[o].map(v=>v/unit);
+    page.pushOperators(PDFLib.pushGraphicsState(),PDFLib.concatTransformationMatrix(...m));
+    page.drawImage(embedded,{x:0,y:0,width:w,height:h});page.pushOperators(PDFLib.popGraphicsState());
+    page.setRotation(PDFLib.degrees(item.angle));
   }
   function cardButton(label, content, action, className='') {
     const button=document.createElement('button');button.type='button';button.title=label;button.setAttribute('aria-label',label);button.className=className;button.innerHTML=content;button.addEventListener('click',action);return button;
   }
 
-  // Images-to-PDF workspace, including measured 2 MB output optimization.
-  function invalidateImages() {state.imageOutput=null;$('imageSize').textContent='Preparing your PDF…';$('imageQuality').textContent='Maximum output: 2 MB · 2,000,000 bytes';syncControls();}
+  // Images-to-PDF: retain source pixels; the former size cap is intentionally removed.
+  function invalidateImages() {state.imageOutput=null;$('imageSize').textContent='Preparing your PDF…';$('imageQuality').textContent='Original resolution · no lossy recompression · no output-size cap';syncControls();}
   function scheduleImages() {
     clearTimeout(imageTimer);if(!state.images.length)return;
-    imageTimer=setTimeout(()=>{if(state.job){scheduleImages();return;}prepareImages();},450);
+    imageTimer=setTimeout(()=>{if(state.job||state.naming){scheduleImages();return;}prepareImages();},450);
   }
   async function addImages(files) {
     if(state.job)return;let added=0;const skipped=[];
@@ -332,48 +429,41 @@
     $('imageWorkspace').hidden=!state.images.length;$('imageCount').textContent=state.images.length;$('imageGrid').replaceChildren();
     state.images.forEach((item,index)=>{
       const card=document.createElement('article');card.className='image-card';card.dataset.id=item.id;card.style.animationDelay=`${Math.min(index,8)*25}ms`;
-      const thumb=document.createElement('div');thumb.className='thumb';const img=new Image();img.src=item.url;img.alt=item.name;img.draggable=false;img.style.transform=`rotate(${item.angle}deg) scale(${item.angle%180?.7:1})`;img.style.filter=item.grayscale?'grayscale(1) contrast(1.05)':'none';
+      const thumb=document.createElement('div');thumb.className='thumb';const img=new Image();img.src=item.url;img.alt=item.name;img.draggable=false;img.style.transform=`rotate(${item.angle}deg) scale(${item.angle%180?.7:1})`;
       const num=document.createElement('span');num.className='page-number';num.textContent=index+1;
       const handle=document.createElement('span');handle.className='drag-handle';handle.title='Drag to reorder';handle.setAttribute('aria-hidden','true');handle.innerHTML=icon('grip');thumb.append(img,num,handle);
       const info=document.createElement('div');info.className='card-info';const title=document.createElement('span');title.className='file-title';title.textContent=item.name;title.title=item.name;
       const actions=document.createElement('div');actions.className='card-tools';
       const left=cardButton('Move page earlier',icon('left'),()=>editImages(()=>{if(index>0)[state.images[index-1],state.images[index]]=[state.images[index],state.images[index-1]];}));left.dataset.edge=String(index===0);
       const rotate=cardButton('Rotate clockwise 90 degrees',icon('rotate'),()=>editImages(()=>item.angle=(item.angle+90)%360));
-      const gray=cardButton('Toggle grayscale','B/W',()=>editImages(()=>item.grayscale=!item.grayscale));gray.setAttribute('aria-pressed',String(item.grayscale));
       const remove=cardButton('Remove page',icon('trash'),()=>editImages(()=>{releaseItem(item);state.images=state.images.filter(p=>p.id!==item.id);}), 'remove');
       const right=cardButton('Move page later',icon('right'),()=>editImages(()=>{if(index<state.images.length-1)[state.images[index],state.images[index+1]]=[state.images[index+1],state.images[index]];}));right.dataset.edge=String(index===state.images.length-1);
-      actions.append(left,rotate,gray,remove,right);info.append(title,actions);card.append(thumb,info);$('imageGrid').append(card);
+      actions.append(left,rotate,remove,right);info.append(title,actions);card.append(thumb,info);$('imageGrid').append(card);
     });syncControls();
   }
-  async function imagePdf(items,q,s,png,job,label){
-    const doc=await PDFLib.PDFDocument.create();doc.setProducer('Kiran’s PDF Studio');
-    for(let i=0;i<items.length;i++){progress(job,`${label} · page ${i+1} of ${items.length}`,i/items.length*90);await addImagePage(doc,items[i],q,s,png,job);await pause();}
-    progress(job,`${label} · measuring actual PDF size…`,95);const bytes=await doc.save({useObjectStreams:true});check(job);return new Blob([bytes],{type:'application/pdf'});
-  }
-  async function optimizeImages(items,job){
-    const pngEligible=items.every(i=>i.png&&i.width*i.height<=MAX_PIXELS&&Math.max(i.width,i.height)<=MAX_SIDE)&&items.reduce((n,i)=>n+i.bytes,0)<MAX_OUTPUT;
-    if(pngEligible){const blob=await imagePdf(items,1,1,true,job,'Checking PNG output');if(blob.size<=MAX_OUTPUT)return{blob,info:'Full-resolution PNG encoding · verified under 2 MB'};}
-    let s=1,low=.3,high=.92;let best=await imagePdf(items,high,s,false,job,'Preparing high quality');
-    if(best.size<=MAX_OUTPUT)return{blob:best,info:'High-quality JPEG · verified under 2 MB'};
-    best=await imagePdf(items,low,s,false,job,'Optimizing image quality');
-    if(best.size>MAX_OUTPUT){low=.45;let found=false;for(let i=0;i<11;i++){s*=.75;best=await imagePdf(items,low,s,false,job,'Adjusting image resolution');if(best.size<=MAX_OUTPUT){found=true;break;}}if(!found)throw new Error('This collection could not fit under 2 MB. Remove some pages and try again.');}
-    let selected=low;for(let i=0;i<4;i++){const q=(low+high)/2,candidate=await imagePdf(items,q,s,false,job,'Refining final quality');if(candidate.size<=MAX_OUTPUT){best=candidate;low=q;selected=q;}else high=q;}
-    return{blob:best,info:`JPEG quality ${Math.round(selected*100)}% · ${s<1?'reduced resolution':'browser-safe resolution'} · verified under 2 MB`};
-  }
+
   async function prepareImages(){
-    if(!state.images.length||state.job)return;clearTimeout(imageTimer);state.imageOutput=null;$('imageSize').textContent='Checking actual output size…';
-    const ok=await runJob('Preparing your PDF…',async job=>{const result=await optimizeImages(state.images.slice(),job);check(job);if(result.blob.size>MAX_OUTPUT)throw new Error('The generated PDF exceeds the 2 MB limit.');state.imageOutput=result.blob;$('imageSize').textContent=`${size(result.blob.size)} · ready to download`;$('imageQuality').textContent=result.info;});
-    if(!ok){$('imageSize').textContent='PDF not prepared';$('imageQuality').textContent='Choose Prepare PDF to retry.';}
+    if(!state.images.length||state.job||state.naming)return;clearTimeout(imageTimer);state.imageOutput=null;
+    $('imageSize').textContent='Building at original resolution…';
+    const ok=await runJob('Preserving your original images…',async job=>{
+      const doc=await PDFLib.PDFDocument.create();doc.setProducer('Kiran’s PDF Studio');
+      for(let i=0;i<state.images.length;i++){progress(job,`Embedding original image ${i+1} of ${state.images.length}…`,i/state.images.length*90);await addImagePage(doc,state.images[i],job);await pause();}
+      const bytes=await doc.save({useObjectStreams:true,updateFieldAppearances:false});check(job);
+      const output=new Blob([bytes],{type:'application/pdf'});state.imageOutput=output;
+      $('imageSize').textContent=`${size(output.size)} · ready to download`;
+      $('imageQuality').textContent=`${exact(output.size)} · original pixels · no quality reduction`;
+    });
+    if(!ok){$('imageSize').textContent='PDF not prepared';$('imageQuality').textContent='No lower-quality fallback was used. Choose Prepare PDF to retry.';}
   }
   bindDrop('imageDrop','imageInput',addImages,true);
   $('addImages').addEventListener('click',()=>{if(!state.job)$('imageInput').click();});
   $('prepareImages').addEventListener('click',prepareImages);
   $('clearImages').addEventListener('click',()=>{if(state.job)return;clearTimeout(imageTimer);state.images.forEach(releaseItem);state.images=[];invalidateImages();renderImages();toast('All images cleared.');});
-  $('downloadImages').addEventListener('click',()=>{if(state.imageOutput&&!state.job){download(state.imageOutput,'kiran_images.pdf');toast('Your PDF is ready to save.');}});
+  $('downloadImages').addEventListener('click',()=>{if(state.imageOutput&&!state.job){download(state.imageOutput,'kiran_images.pdf');}});
 
   // Page extraction copies PDF page objects without rasterizing them.
   async function loadExtract(file){await runJob('Reading PDF pages…',async job=>{
-    validatePdf(file);const bytes=await file.arrayBuffer();check(job);const doc=await PDFLib.PDFDocument.load(bytes);check(job);const count=doc.getPageCount();if(!count)throw new Error('This PDF has no pages.');
+    validatePdf(file);const bytes=await file.arrayBuffer();check(job);const doc=await PDFLib.PDFDocument.load(bytes,{updateMetadata:false});check(job);const count=doc.getPageCount();if(!count)throw new Error('This PDF has no pages.');
     state.extract={file,doc,count};$('extractName').textContent=file.name;$('extractMeta').textContent=`${size(file.size)} · ${plural(count)}`;
     $('startPage').value=1;$('endPage').value=count;$('startPage').max=count;$('endPage').max=count;$('extractWorkspace').hidden=false;$('extractDrop').hidden=true;updateRange();
   });}
@@ -383,31 +473,55 @@
   $('clearExtract').addEventListener('click',()=>{if(state.job)return;state.extract=null;$('extractWorkspace').hidden=true;$('extractDrop').hidden=false;$('extractDrop').focus();syncControls();});
   $('extractForm').addEventListener('submit',async event=>{
     event.preventDefault();if(!state.extract||state.job)return;const r=getRange();if(!r)return toast(`Enter whole page numbers from 1 to ${state.extract.count}.`,true);
-    await runJob('Extracting selected pages…',async job=>{const source=state.extract,output=await PDFLib.PDFDocument.create();const pages=await output.copyPages(source.doc,Array.from({length:r.count},(_,i)=>r.first-1+i));check(job);pages.forEach(p=>output.addPage(p));progress(job,'Saving extracted document…',80);const bytes=await output.save();check(job);download(new Blob([bytes],{type:'application/pdf'}),`${filename(source.file.name)}_pages_${r.first}-${r.last}.pdf`);toast(`${plural(r.count)} extracted.`);});
+    await runJob('Extracting selected pages…',async job=>{const source=state.extract,output=await PDFLib.PDFDocument.create();const pages=await output.copyPages(source.doc,Array.from({length:r.count},(_,i)=>r.first-1+i));check(job);pages.forEach(p=>output.addPage(p));progress(job,'Saving extracted document…',80);const bytes=await output.save({updateFieldAppearances:false});check(job);await download(new Blob([bytes],{type:'application/pdf'}),source.file.name);});
   });
 
-  // Raster compression. Page size and page count are retained.
+
+  // Lossless PDF structure optimization: never render pages into images.
   function resetCompression(){state.compressedOutput=null;$('compressionResult').hidden=true;$('compressionNote').hidden=true;$('downloadCompressed').hidden=true;syncControls();}
-  async function loadCompress(file){await runJob('Reading PDF document…',async job=>{
-    validatePdf(file);const bytes=new Uint8Array(await file.arrayBuffer());check(job);const task=pdfjsLib.getDocument({data:bytes,isEvalSupported:false});let doc=null,committed=false;
-    try{doc=await task.promise;check(job);if(!doc.numPages)throw new Error('This PDF has no pages.');const previous=state.compress;state.compress={file,doc};committed=true;$('compressName').textContent=file.name;$('compressMeta').textContent=`${size(file.size)} · ${plural(doc.numPages)}`;$('compressPageHint').textContent=`${plural(doc.numPages)} to process`;$('compressWorkspace').hidden=false;$('compressDrop').hidden=true;resetCompression();if(previous){try{await previous.doc.destroy();}catch{}}}
-    finally{if(!committed){if(doc)await doc.destroy();else await task.destroy();}}
+  async function loadCompress(file){await runJob('Reading original PDF…',async job=>{
+    validatePdf(file);const bytes=new Uint8Array(await file.arrayBuffer());check(job);
+    const doc=await PDFLib.PDFDocument.load(bytes,{updateMetadata:false});check(job);
+    if(!doc.getPageCount())throw new Error('This PDF has no pages.');
+    state.compress={file,bytes};$('compressName').textContent=file.name;$('compressMeta').textContent=`${size(file.size)} · ${plural(doc.getPageCount())}`;
+    $('compressPageHint').textContent=`${plural(doc.getPageCount())} · lossless mode`;$('compressWorkspace').hidden=false;$('compressDrop').hidden=true;resetCompression();
   });}
   bindDrop('compressDrop','compressInput',files=>loadCompress(files[0]));
-  document.querySelectorAll('[data-level]').forEach(button=>button.addEventListener('click',()=>{if(state.job)return;state.level=button.dataset.level;document.querySelectorAll('[data-level]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));resetCompression();}));
-  $('clearCompress').addEventListener('click',async()=>{if(state.job)return;const old=state.compress;state.compress=null;resetCompression();$('compressWorkspace').hidden=true;$('compressDrop').hidden=false;$('compressDrop').focus();if(old){try{await old.doc.destroy();}catch{}}});
+  $('clearCompress').addEventListener('click',()=>{if(state.job)return;state.compress=null;resetCompression();$('compressWorkspace').hidden=true;$('compressDrop').hidden=false;$('compressDrop').focus();});
+  function streamsUnchanged(original,updated) {
+    for(const [ref,object] of original.context.enumerateIndirectObjects()){
+      if(!(object instanceof PDFLib.PDFRawStream))continue;
+      const other=updated.context.lookup(ref);
+      if(!(other instanceof PDFLib.PDFRawStream)||object.contents.length!==other.contents.length)return false;
+      for(let i=0;i<object.contents.length;i++)if(object.contents[i]!==other.contents[i])return false;
+    }
+    return true;
+  }
+  function hasSignature(doc) {
+    return doc.context.enumerateIndirectObjects().some(([,obj])=>obj instanceof PDFLib.PDFDict&&(obj.get(PDFLib.PDFName.of('ByteRange'))||String(obj.get(PDFLib.PDFName.of('FT')))==='/Sig'));
+  }
   $('compressButton').addEventListener('click',async()=>{
     if(!state.compress||state.job)return;resetCompression();
-    await runJob('Compressing PDF…',async job=>{
-      const source=state.compress,level=levels[state.level],output=await PDFLib.PDFDocument.create(),canvas=document.createElement('canvas');
-      try{for(let n=1;n<=source.doc.numPages;n++){
-        progress(job,`Rendering page ${n} of ${source.doc.numPages}…`,(n-1)/source.doc.numPages*95);const page=await source.doc.getPage(n);
-        try{check(job);const original=page.getViewport({scale:1}),viewport=page.getViewport({scale:safeScale(original.width,original.height,level.scale)});canvas.width=Math.max(1,Math.ceil(viewport.width));canvas.height=Math.max(1,Math.ceil(viewport.height));const ctx=canvas.getContext('2d');if(!ctx)throw new Error('Canvas rendering is unavailable.');await page.render({canvasContext:ctx,viewport,background:'#ffffff',intent:'display'}).promise;check(job);const blob=await canvasBlob(canvas,'image/jpeg',level.quality),jpeg=await output.embedJpg(await blob.arrayBuffer());check(job);output.addPage([original.width,original.height]).drawImage(jpeg,{x:0,y:0,width:original.width,height:original.height});}finally{page.cleanup();}await pause();
-      }progress(job,'Measuring compressed output…',97);const bytes=await output.save({useObjectStreams:true});check(job);const result=new Blob([bytes],{type:'application/pdf'});state.compressedOutput=result;const difference=(1-result.size/source.file.size)*100;$('originalSize').textContent=size(source.file.size);$('compressedSize').textContent=size(result.size);$('sizeReduction').textContent=`${difference>=0?'−':'+'}${Math.abs(difference).toFixed(1)}%`;$('reductionLabel').textContent=difference>=0?'SMALLER':'LARGER';$('compressionResult').hidden=false;$('downloadCompressed').hidden=false;$('compressionNote').hidden=false;$('compressionNote').textContent=difference>0?'Compression finished. Review page clarity in the downloaded PDF.':'This output is not smaller. Keep the original or try a stronger compression level.';toast('Compression complete. Your file is ready.');}
-      finally{canvas.width=canvas.height=1;}
+    await runJob('Optimizing PDF structure without quality loss…',async job=>{
+      const source=state.compress,doc=await PDFLib.PDFDocument.load(source.bytes.slice(),{updateMetadata:false});check(job);
+      let result=source.file,note='This PDF is already compact. The original file is retained without any quality reduction.';
+      if(hasSignature(doc))note='This PDF contains a signature field. The original bytes are retained to avoid invalidating a signature.';
+      else {
+        progress(job,'Packing PDF objects without recompressing images…',35);
+        const bytes=await doc.save({useObjectStreams:true,updateFieldAppearances:false,addDefaultPage:false});check(job);
+        progress(job,'Verifying original image and page streams…',80);
+        const verified=await PDFLib.PDFDocument.load(bytes,{updateMetadata:false});check(job);
+        const samePages=verified.getPageCount()===doc.getPageCount()&&doc.getPages().every((p,i)=>p.getWidth()===verified.getPage(i).getWidth()&&p.getHeight()===verified.getPage(i).getHeight()&&p.getRotation().angle===verified.getPage(i).getRotation().angle);
+        if(!samePages||!streamsUnchanged(doc,verified))note='The optimization could not pass preservation checks. The original file is retained unchanged.';
+        else if(bytes.length<source.file.size){result=new Blob([bytes],{type:'application/pdf'});note='PDF structure optimized. Original page and image stream bytes were verified unchanged.';}
+      }
+      check(job);state.compressedOutput=result;const difference=(1-result.size/source.file.size)*100;
+      $('originalSize').textContent=size(source.file.size);$('compressedSize').textContent=size(result.size);
+      $('sizeReduction').textContent=difference>0?`−${difference.toFixed(1)}%`:'0%';$('reductionLabel').textContent=difference>0?'SMALLER':'UNCHANGED';
+      $('compressionResult').hidden=false;$('downloadCompressed').hidden=false;$('compressionNote').hidden=false;$('compressionNote').textContent=note;
     });
   });
-  $('downloadCompressed').addEventListener('click',()=>{if(state.compressedOutput&&state.compress&&!state.job){download(state.compressedOutput,`${filename(state.compress.file.name)}_${state.level}_compressed.pdf`);toast('Your compressed PDF is ready to save.');}});
+  $('downloadCompressed').addEventListener('click',()=>{if(state.compressedOutput&&state.compress&&!state.job)download(state.compressedOutput,state.compress.file.name);});
 
   // Extend a PDF. The base is reloaded from its original bytes on every build,
   // so repeat builds cannot duplicate additions or mutate the original document.
@@ -426,7 +540,7 @@
   }
   function scheduleAppend(){
     clearTimeout(appendTimer);if(!state.append.base||!state.append.items.length)return;
-    appendTimer=setTimeout(()=>{if(state.job){scheduleAppend();return;}buildAppend();},350);
+    appendTimer=setTimeout(()=>{if(state.job||state.naming){scheduleAppend();return;}buildAppend();},350);
   }
   async function loadAppendBase(file){
     if(state.job)return;let changed=false;
@@ -497,10 +611,10 @@
             const pages=await output.copyPages(item.doc,Array.from({length:count},(_,i)=>start+i));check(job);
             pages.forEach(page=>output.addPage(page));done+=pages.length;progress(job,`Adding PDF pages · ${done} of ${additions}…`,done/additions*85);await pause();
           }
-        }else{await addImagePage(output,item,.95,1,item.png,job);done++;await pause();}
+        }else{await addImagePage(output,item,job);done++;await pause();}
       }
       check(job);progress(job,'Saving the updated document…',90);
-      const bytes=await output.save({useObjectStreams:true});check(job);
+      const bytes=await output.save({useObjectStreams:true,updateFieldAppearances:false});check(job);
       // Inspect serialized bytes, not a guessed sum of source file sizes.
       progress(job,'Verifying page count and final file size…',97);
       const verified=await PDFLib.PDFDocument.load(bytes,{updateMetadata:false});check(job);
@@ -527,7 +641,7 @@
   });
   $('downloadAppend').addEventListener('click',()=>{
     if(!state.append.output||!state.append.base||state.job)return;
-    download(state.append.output,`${filename(state.append.base.file.name)}_updated.pdf`);toast('Your updated PDF is ready to save.');
+    download(state.append.output,state.append.base.file.name);
   });
 
   if(window.Sortable){
@@ -536,7 +650,7 @@
     sorts.push(Sortable.create($('appendList'),{...options,onEnd(event){if(state.job||event.oldIndex===event.newIndex)return;const map=new Map(state.append.items.map(i=>[i.id,i]));state.append.items=[...$('appendList').children].map(el=>map.get(el.dataset.id));invalidateAppend();renderAppend();scheduleAppend();}}));
   }
   if(!ready){$('errorBanner').hidden=false;$('errorBanner').textContent='The PDF libraries could not load. Check your internet connection and reload this page.';}
-  window.addEventListener('beforeunload',event=>{if(state.job||state.images.length||state.extract||state.compress||state.append.base){event.preventDefault();event.returnValue='';}});
+  window.addEventListener('beforeunload',event=>{if(state.job||state.naming||state.images.length||state.extract||state.compress||state.append.base){event.preventDefault();event.returnValue='';}});
   syncControls();
 })();
 
