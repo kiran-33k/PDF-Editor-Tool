@@ -35,6 +35,8 @@
 .download-dialog{width:min(510px,calc(100% - 28px));max-height:calc(100dvh - 32px);overflow:auto;margin:auto;padding:27px;border:1px solid var(--line);border-radius:23px;background:var(--surface);color:var(--ink);box-shadow:0 35px 120px #0005}.download-dialog::backdrop{background:#080e256f;backdrop-filter:blur(7px)}.download-dialog[open]{animation:card-in .22s var(--ease)}.download-dialog h2{font-size:25px;letter-spacing:-.8px;margin:12px 0 7px}.download-dialog .dialog-sub{font-size:12px;color:var(--muted);line-height:1.7;margin-bottom:18px}.download-dialog .export-icon{width:45px;height:45px}.name-option{display:flex;align-items:flex-start;gap:10px;padding:14px;border:1px solid var(--line);border-radius:12px;margin:9px 0;cursor:pointer;background:var(--soft)}.name-option:has(input:checked){border-color:var(--primary);background:var(--tint)}.name-option input{accent-color:var(--primary);margin:4px 0 0;width:15px;height:15px}.name-option strong{font-size:12px;display:block}.name-option span{display:block;font-size:10px;color:var(--muted);overflow-wrap:anywhere;margin-top:4px}.name-option div{min-width:0}.name-input-row{display:flex;align-items:center;border:1px solid var(--line);border-radius:10px;background:var(--soft);margin-top:7px;overflow:hidden}.name-input-row:focus-within{border-color:var(--primary);box-shadow:0 0 0 3px var(--tint)}.name-input-row input{min-width:0;width:100%;border:0;background:transparent;padding:13px;outline:none;font-size:14px}.name-input-row span{padding:0 13px;color:var(--muted);font-size:12px}.name-field{margin-top:15px}.name-field label{font-size:11px;font-weight:600}.name-error{color:var(--danger);font-size:11px;min-height:17px;margin:9px 0}.dialog-actions{display:flex;justify-content:flex-end;gap:9px;margin-top:14px}.dialog-actions .btn{min-height:43px}.quality-note strong{color:var(--primary)}
 @media(max-width:520px){.download-dialog{padding:21px}.download-dialog h2{font-size:23px}.dialog-actions .btn{flex:1}}
 
+
+.extra-workspace{padding:clamp(20px,4vw,40px)}.extra-actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin:22px 0 0}.extra-summary{margin:18px 0;line-height:1.7}.merge-row{display:flex;align-items:center;gap:14px;padding:16px 0;border-bottom:1px solid var(--line)}.merge-row .file-details{min-width:0;flex:1}.merge-row strong{overflow-wrap:anywhere}.export-settings{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:20px 0}.export-settings select{font:inherit;color:inherit;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px}.jpg-progress{margin:24px 0}.jpg-track{height:10px;border-radius:99px;background:var(--line);overflow:hidden;margin:12px 0}.jpg-fill{height:100%;width:0;background:var(--primary);transition:width .25s ease}.jpg-results{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:20px}.jpg-results a{display:block;padding:16px;border:1px solid var(--line);border-radius:16px;color:inherit;text-decoration:none;transition:transform .18s,background .18s}.jpg-results a:hover{transform:translateY(-3px)}.jpg-results small{display:block;margin-top:6px;opacity:.7}@media(prefers-reduced-motion:reduce){.jpg-fill,.jpg-results a{transition:none}}
 </style>
 </head>
 <body>
@@ -83,18 +85,24 @@
 </div><aside class="extend-aside" aria-label="Original and updated document comparison"><p class="aside-label">Your document, at a glance</p><div class="summary-card original"><div class="summary-title"><svg><use href="#i-file"/></svg>Original PDF</div><div class="summary-values"><div><strong id="appendOriginalPages">—</strong><span>pages</span></div><div><strong id="appendOriginalSize">—</strong><span>file size</span></div></div><p id="appendOriginalBytes" class="summary-name">Choose your original document.</p></div><div class="summary-divider"><svg><use href="#i-plus"/></svg><span id="appendAddedSummary">Your additions go at the end</span></div><div class="summary-card updated"><div class="summary-title"><svg><use href="#i-stack"/></svg>Updated PDF</div><div class="summary-values"><div><strong id="appendFinalPages">—</strong><span>pages</span></div><div><strong id="appendFinalSize">—</strong><span>file size</span></div></div><p id="appendFinalBytes" class="summary-name">Measured after the PDF is built.</p></div><p id="appendStatus" class="ready-note" role="status" aria-live="polite">Choose a PDF to get started.</p><div class="append-export"><button id="buildAppend" class="btn" data-lock disabled><svg><use href="#i-stack"/></svg>Build updated PDF</button><button id="downloadAppend" class="btn primary" data-lock disabled><svg><use href="#i-download"/></svg>Download updated PDF</button><small>The download unlocks after the updated file is built and its actual size is measured. No output-size cap or image recompression applies.</small></div><div class="aside-bottom"><svg><use href="#i-shield"/></svg><span>Saved as a new file. Your original stays untouched.</span></div></aside></div>
 <p class="hint" style="margin-top:12px">PDF pages are appended without rasterization. Digital signatures need re-signing after edits; interactive fields in added PDFs may not remain editable.</p>
 </section>
+
+<section class="extend-section" id="merge" aria-labelledby="mergeTitle"><div class="section-intro"><div><span class="eyebrow">Bring it all together</span><h2 id="mergeTitle">Many documents. One PDF.</h2><p>Combine up to five PDFs in your chosen order, with their page content preserved.</p></div><span class="new-badge">MERGE PDFs</span></div><div class="studio extra-workspace">
+<input id="mergeInput" type="file" multiple accept="application/pdf,.pdf" hidden><button id="mergeDrop" class="drop" data-lock><span class="drop-icon"><svg><use href="#i-stack"/></svg></span><strong>Choose up to 5 PDFs</strong><span class="sub">No file-size cap. Available browser memory determines how large a job can be.</span><span class="browse-label">Choose PDFs to merge</span></button>
+<div id="mergeList" aria-label="PDF merge order"></div><p id="mergeSummary" class="extra-summary" role="status" aria-live="polite">Choose at least two PDFs to begin.</p><div class="extra-actions"><button id="buildMerge" class="btn primary" data-lock disabled>Merge PDFs</button><button id="downloadMerge" class="btn" data-lock disabled>Download merged PDF</button><button id="clearMerge" class="btn danger" data-lock disabled>Clear</button></div><p class="hint" style="margin-top:18px">Pages are copied without rasterization or image recompression. Document-level bookmarks and interactive fields from added PDFs may not carry over. Digital signatures need re-signing after merging.</p></div></section>
+<section class="extend-section" id="jpg" aria-labelledby="jpgTitle"><div class="section-intro"><div><span class="eyebrow">Give every page its own space</span><h2 id="jpgTitle">From PDF to picture.</h2><p>Export every page as an individual, full-color JPG.</p></div><span class="new-badge">PDF TO JPG</span></div><div class="studio extra-workspace">
+<input id="jpgInput" type="file" accept="application/pdf,.pdf" hidden><button id="jpgDrop" class="drop" data-lock><span class="drop-icon"><svg><use href="#i-image"/></svg></span><strong>Choose your PDF</strong><span class="sub">We’ll count the pages before you export.</span><span class="browse-label">Browse PDF</span></button><p id="jpgSummary" class="extra-summary" role="status" aria-live="polite">Your page count will appear here.</p><div class="export-settings"><label for="jpgDpi">Export resolution</label><select id="jpgDpi" data-lock><option value="150">150 DPI · smaller images</option><option value="300" selected>300 DPI · high detail</option><option value="600">600 DPI · extra detail</option></select></div><p class="hint">Uses the highest JPEG encoder quality, with no automatic resolution reduction. JPG is a lossy raster format: PDF vectors and original image bytes cannot be preserved exactly. Higher DPI cannot recover detail missing in the source.</p><div class="extra-actions"><button id="downloadJpg" class="btn primary" data-lock disabled>Download every page as JPG</button><button id="clearJpg" class="btn" data-lock disabled>Reset</button></div><div id="jpgProgress" class="jpg-progress" hidden><p id="jpgStatus" role="status" aria-live="polite"></p><div class="jpg-track" role="progressbar" id="jpgMeter" aria-label="Pages exported" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div id="jpgFill" class="jpg-fill"></div></div></div><p class="hint" style="margin-top:18px">Allow multiple downloads when your browser asks. Progress counts generated pages and download requests; browsers do not report when files finish saving. Each completed page also gets a download link below.</p><div id="jpgResults" class="jpg-results" aria-label="Individual JPG downloads"></div></div></section>
 <section class="trust-grid" aria-label="About this application"><div class="trust-item"><span class="trust-icon"><svg><use href="#i-shield"/></svg></span><div><strong>Your files stay yours</strong><p>Documents are processed in your browser, without uploading them to a server.</p></div></div><div class="trust-item"><span class="trust-icon"><svg><use href="#i-bolt"/></svg></span><div><strong>Straight to the useful part</strong><p>No accounts or setup. Choose your files and get to work.</p></div></div><div class="trust-item"><span class="trust-icon"><svg><use href="#i-heart"/></svg></span><div><strong>Made for everyday tasks</strong><p>One space to create, extract, compress, and extend your documents.</p></div></div></section>
 </main>
-<footer class="footer" id="developer"><div class="shell"><div class="footer-top"><div class="footer-brand"><a class="brand" href="#top"><span class="brand-mark"><svg><use href="#i-file"/></svg></span><span><strong>Kiran’s PDF</strong><small>THE DOCUMENT STUDIO</small></span></a><p class="footer-description">A little less paperwork. A little more possibility.<br>Thoughtful tools for the documents that move your day forward.</p><p class="footer-tech">Internet loads libraries and fonts. Your documents are processed locally and are not stored after this tab closes.</p></div><nav aria-label="Footer tools"><h3 class="footer-heading">Your toolkit</h3><div class="footer-links"><button data-tool-link="images">Images to PDF ↗</button><button data-tool-link="extract">Extract pages ↗</button><button data-tool-link="compress">Optimize PDF ↗</button><a href="#extend">Extend a PDF ↗</a></div></nav><div><h3 class="footer-heading">Made with intention</h3><div class="creator-card"><span class="avatar">K</span><div><strong>Kondasani Himakiran</strong><p>UI/UX & Development</p><p>Andhra Pradesh, India</p></div></div><p class="footer-signoff">Simple tools. A smoother day.</p></div></div><div class="footer-bottom"><p>© <span id="year"></span> Kiran’s PDF Studio. All rights reserved.</p><p>Built for your browser. Designed around you.</p><a href="#top" class="back-top">Back to top<svg><use href="#i-arrow"/></svg></a></div></div></footer>
+<footer class="footer" id="developer"><div class="shell"><div class="footer-top"><div class="footer-brand"><a class="brand" href="#top"><span class="brand-mark"><svg><use href="#i-file"/></svg></span><span><strong>Kiran’s PDF</strong><small>THE DOCUMENT STUDIO</small></span></a><p class="footer-description">A little less paperwork. A little more possibility.<br>Thoughtful tools for the documents that move your day forward.</p><p class="footer-tech">Internet loads libraries and fonts. Your documents are processed locally and are not stored after this tab closes.</p></div><nav aria-label="Footer tools"><h3 class="footer-heading">Your toolkit</h3><div class="footer-links"><button data-tool-link="images">Images to PDF ↗</button><button data-tool-link="extract">Extract pages ↗</button><button data-tool-link="compress">Optimize PDF ↗</button><a href="#extend">Extend a PDF ↗</a><a href="#merge">Merge PDFs ↗</a><a href="#jpg">PDF to JPG ↗</a></div></nav><div><h3 class="footer-heading">Made with intention</h3><div class="creator-card"><span class="avatar">K</span><div><strong>Kondasani Himakiran</strong><p>UI/UX & Development</p><p>Andhra Pradesh, India</p></div></div><p class="footer-signoff">Simple tools. A smoother day.</p></div></div><div class="footer-bottom"><p>© <span id="year"></span> Kiran’s PDF Studio. All rights reserved.</p><p>Built for your browser. Designed around you.</p><a href="#top" class="back-top">Back to top<svg><use href="#i-arrow"/></svg></a></div></div></footer>
 
 <dialog id="downloadDialog" class="download-dialog" aria-labelledby="downloadNameTitle" aria-describedby="downloadNameDescription">
 <form id="downloadNameForm" novalidate>
 <span class="export-icon"><svg><use href="#i-download"/></svg></span>
 <h2 id="downloadNameTitle">Name it before you save it.</h2>
-<p id="downloadNameDescription" class="dialog-sub">Would you like to enter a new PDF name or continue with the current one?<br><span id="downloadFileSize"></span></p>
+<p id="downloadNameDescription" class="dialog-sub">Would you like to enter a new name or continue with the current one?<br><span id="downloadFileSize"></span></p>
 <label class="name-option"><input type="radio" id="nameKeep" name="nameChoice" value="keep" checked><div><strong>Keep the current name</strong><span id="currentPdfName"></span></div></label>
 <label class="name-option"><input type="radio" id="nameNew" name="nameChoice" value="new"><div><strong>Enter a new name</strong><span>Choose a name that is easier to find later.</span></div></label>
-<div id="customNameField" class="name-field" hidden><label for="pdfNameInput">New PDF name</label><div class="name-input-row"><input id="pdfNameInput" type="text" autocomplete="off" spellcheck="false" maxlength="160" aria-describedby="nameError" disabled><span>.pdf</span></div></div>
+<div id="customNameField" class="name-field" hidden><label for="pdfNameInput">New file name</label><div class="name-input-row"><input id="pdfNameInput" type="text" autocomplete="off" spellcheck="false" maxlength="160" aria-describedby="nameError" disabled><span id="nameExtension">.pdf</span></div></div>
 <p id="nameError" class="name-error" role="alert"></p>
 <div class="dialog-actions"><button type="button" id="cancelDownload" class="btn">Cancel</button><button type="submit" id="confirmDownload" class="btn primary"><svg><use href="#i-download"/></svg>Download PDF</button></div>
 </form></dialog>
@@ -110,6 +118,7 @@
   const MAX_IMAGE = 50 * 1024 * 1024;
   const state = { images: [], imageOutput: null, extract: null, compress: null,
     compressedOutput: null, mode: 'images', job: null, naming: false,
+    merge: {items:[],output:null}, jpg: {source:null,results:[]},
     append: { base: null, items: [], output: null, outputPages: 0 } };
   const sorts = [];
   let sequence = 0, toastTimer, imageTimer, appendTimer, themeBusy = false;
@@ -133,14 +142,15 @@
 
   let resolveDownloadName = null;
   let pendingDefaultName = '';
-  function checkedName(value) {
-    let name=String(value).normalize('NFC').trim().replace(/(?:\.pdf)+$/i,'').trim();
+  let namingExtension="pdf";
+  function checkedName(value, extension="pdf") {
+    let name=String(value).normalize('NFC').trim().replace(new RegExp('(?:\\.'+extension+')+$','i'),'').trim();
     if(!name || /^[. ]+$/.test(name)) throw new Error('Enter a PDF name.');
     if(/[\\/:*?"<>|\u0000-\u001f\u007f\u202a-\u202e\u2066-\u2069]/u.test(name)) throw new Error('Remove slashes, control characters, or these symbols: : * ? " < > |');
     if(/[. ]$/.test(name)) throw new Error('The name cannot end with a dot or a space.');
     if(/^(con|prn|aux|nul|com[1-9]|lpt[1-9])(?:\.|$)/i.test(name)) throw new Error('That name is reserved by Windows. Choose another name.');
     if([...name].length>150) throw new Error('Use a name with 150 characters or fewer.');
-    return name+'.pdf';
+    return name+'.'+extension;
   }
   function updateNameChoice() {
     const custom=$('nameNew').checked;
@@ -159,31 +169,40 @@
   $('downloadNameForm').addEventListener('submit',event=>{
     event.preventDefault();
     try {
-      const name=$('nameNew').checked?checkedName($('pdfNameInput').value):pendingDefaultName;
+      const name=$('nameNew').checked?checkedName($('pdfNameInput').value,namingExtension):pendingDefaultName;
       const resolve=resolveDownloadName;resolveDownloadName=null;
       $('downloadDialog').close('save');if(resolve)resolve(name);
     }catch(error){$('nameError').textContent=error.message;$('pdfNameInput').focus();}
   });
-  async function download(blob, name) {
-    if(state.naming)return false;
+  async function requestName(name, details, extension='pdf') {
+    if(state.naming)return null;
     state.naming=true;syncControls();
-    let url=null;
     try {
-      pendingDefaultName=checkedName(filename(name));
+      namingExtension=extension;
+      pendingDefaultName=checkedName(filename(name).replace(/\.(jpg|jpeg)$/i,''),extension);
       $('currentPdfName').textContent=pendingDefaultName;
-      $('downloadFileSize').textContent=`${size(blob.size)} · ${exact(blob.size)}`;
+      $('downloadFileSize').textContent=details;
+      $('nameExtension').textContent='.'+extension;
+      $('confirmDownload').textContent=extension==='jpg'?'Start JPG export':'Download PDF';
       $('nameKeep').checked=true;$('nameNew').checked=false;
-      $('pdfNameInput').value=pendingDefaultName.replace(/\.pdf$/i,'');
-      $('nameError').textContent='';updateNameChoice();
+      $('pdfNameInput').value=pendingDefaultName.slice(0,-extension.length-1);
+      updateNameChoice();
       const choice=new Promise(resolve=>resolveDownloadName=resolve);
       $('downloadDialog').showModal();$('nameKeep').focus();
-      const selected=await choice;if(!selected)return false;
-      url=URL.createObjectURL(blob);
-      const a=document.createElement('a');a.href=url;a.download=selected;document.body.append(a);a.click();a.remove();
-      const savedURL=url;setTimeout(()=>URL.revokeObjectURL(savedURL),60000);url=null;
+      return await choice;
+    }finally{resolveDownloadName=null;state.naming=false;syncControls();}
+  }
+  function sendDownload(url,name){
+    const a=document.createElement('a');a.href=url;a.download=name;document.body.append(a);a.click();a.remove();
+  }
+  async function download(blob,name){
+    try{
+      const selected=await requestName(name,`${size(blob.size)} · ${exact(blob.size)}`);
+      if(!selected)return false;
+      const url=URL.createObjectURL(blob);sendDownload(url,selected);
+      setTimeout(()=>URL.revokeObjectURL(url),60000);
       toast(`Download started: ${selected}`);return true;
-    }catch(error){if(url)URL.revokeObjectURL(url);toast(errorText(error),true);return false;}
-    finally{resolveDownloadName=null;state.naming=false;syncControls();}
+    }catch(error){toast(errorText(error),true);return false;}
   }
   function errorText(error) {
     const message = String(error?.message || error || 'Processing failed. Please try another file.');
@@ -264,6 +283,11 @@
     $('clearAdditions').disabled = locked || !state.append.items.length;
     $('appendDrop').disabled = locked || !state.append.base;
     document.querySelectorAll('.card-tools button,.append-buttons button').forEach(button => button.disabled = locked || button.dataset.edge === 'true');
+    $('buildMerge').disabled=locked||state.merge.items.length<2;
+    $('downloadMerge').disabled=locked||!state.merge.output;
+    $('clearMerge').disabled=locked||!state.merge.items.length;
+    $('downloadJpg').disabled=locked||!state.jpg.source;
+    $('clearJpg').disabled=locked||!state.jpg.source;
     sorts.forEach(sort => sort.option('disabled', locked));
   }
   function check(job) { if (job.cancelled) throw new DOMException('Processing cancelled.', 'AbortError'); }
@@ -644,13 +668,119 @@
     download(state.append.output,state.append.base.file.name);
   });
 
+
+  function renderMerge(){
+    $('mergeList').replaceChildren();
+    state.merge.items.forEach((item,index)=>{
+      const row=document.createElement('div');row.className='merge-row';
+      const details=document.createElement('div');details.className='file-details';
+      const title=document.createElement('strong');title.textContent=`${index+1}. ${item.file.name}`;
+      const meta=document.createElement('p');meta.textContent=`${plural(item.count)} · ${size(item.file.size)}`;details.append(title,meta);row.append(details);
+      const actions=document.createElement('div');actions.className='append-buttons';
+      for(const [label,delta] of [['Move earlier',-1],['Move later',1],['Remove',0]]){
+        const button=document.createElement('button');button.className='btn small';button.textContent=delta<0?'↑':delta>0?'↓':'×';button.setAttribute('aria-label',`${label}: ${item.file.name}`);
+        button.dataset.edge=String(delta!==0&&(index+delta<0||index+delta>=state.merge.items.length));
+        button.addEventListener('click',()=>{if(state.job||state.naming)return;const list=state.merge.items;if(delta){[list[index],list[index+delta]]=[list[index+delta],list[index]];}else list.splice(index,1);state.merge.output=null;renderMerge();});actions.append(button);
+      }row.append(actions);$('mergeList').append(row);
+    });
+    const n=state.merge.items.length,pages=state.merge.items.reduce((sum,x)=>sum+x.count,0);
+    $('mergeSummary').textContent=n?`${n} of 5 PDFs · ${plural(pages)} · ${size(state.merge.items.reduce((sum,x)=>sum+x.file.size,0))} combined input${state.merge.output?` · Merged file: ${size(state.merge.output.size)}`:' · Arrange the files, then merge.'}`:'Choose at least two PDFs to begin.';syncControls();
+  }
+  async function addMerge(files){
+    if(state.merge.items.length+files.length>5){toast('Choose no more than five PDFs in total. Remove a file to make room.',true);return;}
+    await runJob('Reading PDFs…',async job=>{
+      const staged=[];
+      for(const file of files){validatePdf(file);const bytes=new Uint8Array(await file.arrayBuffer());const doc=await PDFLib.PDFDocument.load(bytes,{updateMetadata:false});check(job);if(!doc.getPageCount())throw Error('A selected PDF has no pages.');staged.push({file,bytes,count:doc.getPageCount()});progress(job,`Read ${staged.length} of ${files.length} PDFs`,staged.length/files.length*100);}
+      state.merge.items.push(...staged);state.merge.output=null;renderMerge();
+    });
+  }
+  async function buildMerge(){
+    if(state.merge.items.length<2)return;
+    await runJob('Merging PDFs…',async job=>{
+      state.merge.output=null;
+      const items=state.merge.items,output=await PDFLib.PDFDocument.load(items[0].bytes,{updateMetadata:false});
+      const total=items.reduce((sum,x)=>sum+x.count,0);let done=items[0].count;
+      for(const item of items.slice(1)){
+        const doc=await PDFLib.PDFDocument.load(item.bytes,{updateMetadata:false});
+        for(let start=0;start<item.count;start+=16){check(job);const indices=Array.from({length:Math.min(16,item.count-start)},(_,i)=>start+i);const copied=await output.copyPages(doc,indices);copied.forEach(page=>output.addPage(page));done+=copied.length;progress(job,`Merged ${done} of ${total} pages`,done/total*95);await pause();}
+      }
+      const bytes=await output.save({updateFieldAppearances:false});check(job);
+      const verified=await PDFLib.PDFDocument.load(bytes,{updateMetadata:false});if(verified.getPageCount()!==total)throw Error('Page-count verification failed. Please try again.');
+      check(job);state.merge.output=new Blob([bytes],{type:'application/pdf'});renderMerge();toast('Your merged PDF is ready.');
+    });
+  }
+  bindDrop('mergeDrop','mergeInput',addMerge,true);
+  $('buildMerge').addEventListener('click',buildMerge);
+  $('downloadMerge').addEventListener('click',()=>{if(state.merge.output&&!state.job)download(state.merge.output,'merged.pdf');});
+  $('clearMerge').addEventListener('click',()=>{if(state.job||state.naming)return;state.merge={items:[],output:null};renderMerge();});
+
+  // PDF.js is loaded only for rendering. Disabling eval also supports stricter browser policies.
+  let rendererPromise;
+  function getRenderer(){
+    if(!rendererPromise)rendererPromise=import('https://cdn.jsdelivr.net/npm/pdfjs-dist@5.6.205/build/pdf.min.mjs').then(pdfjs=>{
+      pdfjs.GlobalWorkerOptions.workerSrc='https://cdn.jsdelivr.net/npm/pdfjs-dist@5.6.205/build/pdf.worker.min.mjs';return pdfjs;
+    }).catch(()=>{rendererPromise=null;throw Error('The PDF renderer could not load. Use a current browser, check your connection, and retry.');});return rendererPromise;
+  }
+
+  function clearJpgResults(){state.jpg.results.forEach(x=>URL.revokeObjectURL(x.url));state.jpg.results=[];$('jpgResults').replaceChildren();$('jpgProgress').hidden=true;}
+  async function loadJpg(file){
+    await runJob('Reading PDF pages…',async job=>{
+      validatePdf(file);const pdfjs=await getRenderer();check(job);
+      const task=pdfjs.getDocument({data:new Uint8Array(await file.arrayBuffer()),isEvalSupported:false,wasmUrl:'https://cdn.jsdelivr.net/npm/pdfjs-dist@5.6.205/wasm/',cMapUrl:'https://cdn.jsdelivr.net/npm/pdfjs-dist@5.6.205/cmaps/',cMapPacked:true,standardFontDataUrl:'https://cdn.jsdelivr.net/npm/pdfjs-dist@5.6.205/standard_fonts/'});
+      let passwordProtected=false;task.onPassword=()=>{passwordProtected=true;task.destroy();};
+      let doc;
+      try{doc=await task.promise;check(job);if(!doc.numPages)throw Error('This PDF has no pages.');if(doc.isPureXfa)throw Error('This PDF uses XFA forms. Export it as a standard PDF before converting to JPG.');}
+      catch(error){await task.destroy();if(passwordProtected)throw Error('This PDF is password-protected. Save an unprotected copy first.');throw error;}
+      const previous=state.jpg.source;clearJpgResults();state.jpg.source={file,doc};if(previous)await previous.doc.destroy();
+      $('jpgSummary').textContent=`${file.name} · ${plural(doc.numPages)} · ${size(file.size)}`;syncControls();
+    });
+  }
+  async function exportJpg(){
+    if(!state.jpg.source||state.job||state.naming)return;
+    const source=state.jpg.source,dpi=Number($('jpgDpi').value)||300;
+    let selected;
+    try{selected=await requestName(source.file.name,`${plural(source.doc.numPages)} · ${dpi} DPI · files numbered -page-001.jpg`,'jpg');}catch(error){toast(errorText(error),true);return;}
+    if(!selected)return;
+    const prefix=selected.slice(0,-4);
+    const ok=await runJob('Rendering JPG pages…',async job=>{
+      clearJpgResults();$('jpgProgress').hidden=false;$('jpgFill').style.width='0%';$('jpgMeter').setAttribute('aria-valuenow','0');
+      for(let number=1;number<=source.doc.numPages;number++){
+        check(job);$('jpgStatus').textContent=`Rendering page ${number} of ${source.doc.numPages}…`;
+        const page=await source.doc.getPage(number),viewport=page.getViewport({scale:dpi/72});
+        const width=Math.ceil(viewport.width-1e-7),height=Math.ceil(viewport.height-1e-7);
+        if(width>16384||height>16384||width*height>32000000){page.cleanup();throw Error(`Page ${number} is too large to render safely at ${dpi} DPI. Select a lower resolution; it will never be reduced automatically.`);}
+        const canvas=document.createElement('canvas');canvas.width=width;canvas.height=height;
+        try{
+          const ctx=canvas.getContext('2d',{alpha:false});if(!ctx)throw Error('Your browser could not allocate a canvas.');
+          const rendering=page.render({canvasContext:ctx,viewport,background:'rgb(255,255,255)'});
+          const cancel=()=>rendering.cancel();$('cancelJob').addEventListener('click',cancel);
+          try{await rendering.promise;}finally{$('cancelJob').removeEventListener('click',cancel);}
+          check(job);const blob=await new Promise((resolve,reject)=>canvas.toBlob(b=>b?resolve(b):reject(Error('JPEG encoding failed. Try a lower resolution.')),'image/jpeg',1));check(job);
+          if(blob.type!=='image/jpeg')throw Error('This browser cannot encode JPEG images.');
+          const name=`${prefix}-page-${String(number).padStart(Math.max(3,String(source.doc.numPages).length),'0')}.jpg`,url=URL.createObjectURL(blob);
+          state.jpg.results.push({name,url,blob});
+          const link=document.createElement('a');link.href=url;link.download=name;link.textContent=`Page ${number} · Download JPG`;
+          const meta=document.createElement('small');meta.textContent=`${width} × ${height} px · ${size(blob.size)}`;link.append(meta);$('jpgResults').append(link);sendDownload(url,name);
+          const percent=number/source.doc.numPages*100;$('jpgFill').style.width=percent+'%';$('jpgMeter').setAttribute('aria-valuenow',String(Math.round(percent)));
+          $('jpgStatus').textContent=`${number} of ${source.doc.numPages} pages generated · ${number} download requests sent`;progress(job,$('jpgStatus').textContent,percent);
+        }finally{canvas.width=canvas.height=0;page.cleanup();}
+        await new Promise(resolve=>setTimeout(resolve,300));
+      }
+    });
+    if(!ok)$('jpgStatus').textContent=`Export stopped. ${state.jpg.results.length} of ${source.doc.numPages} pages generated. Completed pages remain available below.`;
+    else toast('All JPG pages are ready. Use the individual links if your browser blocked a download.');
+  }
+  bindDrop('jpgDrop','jpgInput',files=>loadJpg(files[0]));
+  $('downloadJpg').addEventListener('click',exportJpg);
+  $('clearJpg').addEventListener('click',async()=>{if(state.job||state.naming)return;const source=state.jpg.source;state.jpg.source=null;clearJpgResults();$('jpgSummary').textContent='Your page count will appear here.';syncControls();if(source)await source.doc.destroy();});
+
   if(window.Sortable){
     const options={handle:'.drag-handle',animation:motion.matches?0:180,ghostClass:'sortable-ghost',chosenClass:'sortable-chosen',delay:150,delayOnTouchOnly:true,touchStartThreshold:4};
     sorts.push(Sortable.create($('imageGrid'),{...options,onEnd(event){if(state.job||event.oldIndex===event.newIndex)return;const map=new Map(state.images.map(i=>[i.id,i]));state.images=[...$('imageGrid').children].map(el=>map.get(el.dataset.id));invalidateImages();renderImages();scheduleImages();}}));
     sorts.push(Sortable.create($('appendList'),{...options,onEnd(event){if(state.job||event.oldIndex===event.newIndex)return;const map=new Map(state.append.items.map(i=>[i.id,i]));state.append.items=[...$('appendList').children].map(el=>map.get(el.dataset.id));invalidateAppend();renderAppend();scheduleAppend();}}));
   }
   if(!ready){$('errorBanner').hidden=false;$('errorBanner').textContent='The PDF libraries could not load. Check your internet connection and reload this page.';}
-  window.addEventListener('beforeunload',event=>{if(state.job||state.naming||state.images.length||state.extract||state.compress||state.append.base){event.preventDefault();event.returnValue='';}});
+  window.addEventListener('beforeunload',event=>{if(state.job||state.naming||state.images.length||state.extract||state.compress||state.append.base||state.merge.items.length||state.jpg.source){event.preventDefault();event.returnValue='';}});
   syncControls();
 })();
 
